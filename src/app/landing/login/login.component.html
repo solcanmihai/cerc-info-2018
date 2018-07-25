@@ -1,0 +1,22 @@
+<div class="login-page">
+  <div class="row justify-content-md-center">
+      <div class="col-md-4">
+          <img src="assets/images/logo.png" width="150px" class="user-avatar" />
+          <h1>Cerc de informatica</h1>
+          <form (ngSubmit)="handleSubmit(form.value)" #form="ngForm" novalidate>
+              <div class="form-content">
+                  <div class="form-group">
+                      <input type="text" class="form-control input-underline input-lg" name="email" [ngModel]="details.email" placeholder="Email">
+                  </div>
+
+                  <div class="form-group">
+                      <input type="password" class="form-control input-underline input-lg" [ngModel]="details.password" name="password" placeholder="Password">
+                  </div>
+
+                  <div class="form-group" style="color: red">{{errorMessage}}</div>
+              </div>
+              <button class="btn rounded-btn" type="submit"> Log in </button>
+          </form>
+      </div>
+  </div>
+</div>

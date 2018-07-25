@@ -1,0 +1,15 @@
+<div class="row">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nume</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let teacher of teachers; let i = index">
+        <th scope="row">{{i + 1}}</th>
+        <td>{{teacher.name}}</td>
+      </tr>
+    </tbody>
+  </table>

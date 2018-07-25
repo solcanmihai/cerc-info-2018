@@ -1,0 +1,24 @@
+<div class="form-group">
+    <label for="statusSelect">Tip utilizator</label>
+    <select [(ngModel)]="userType" class="form-control" id="statusSelect">
+      <option>Elev</option>
+      <option>Profesor</option>
+    </select>
+  </div>
+
+<div class="form-group">
+  <label for="exampleFormControlInput1">Email</label>
+  <input [(ngModel)]="email" type="email" class="form-control">
+</div>
+
+<div class="form-group">
+    <label>Grupa</label>
+    <select [(ngModel)]="selectedGroup" name="group" class="form-control" list="groups-list">
+      <option *ngFor="let group of groups" [ngValue]="group">{{group.name}}</option>
+    </select>
+
+</div>
+
+<div class="form-group">
+  <button class="btn btn-success" (click)="handleSubmit()">Trimite invitatie</button>
+</div>

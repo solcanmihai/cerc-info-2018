@@ -1,16 +1,54 @@
+//Angular
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'; 
 
+//Components
 import { AppComponent } from './app.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { RedirectComponent } from './redirect/redirect.component';
+
+
+//Modules
+import { LandingModule } from './landing/landing.module';
+import { AdminDashboardModule } from './admin-dashboard/admin-dashboard.module';
+
+//Services
+import { AuthService } from './auth.service';
+import { DataService } from './data.service';
+
+const routes: Routes = [
+  {path: '', component: RedirectComponent},
+  {path: 'redirect', component: RedirectComponent},
+  {path: '**', component: PageNotFoundComponent}
+]
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PageNotFoundComponent,
+    RedirectComponent
   ],
   imports: [
-    BrowserModule
+    //Angular
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+
+    //My modules
+    AdminDashboardModule,
+    LandingModule,
+
+    //Routing
+    RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    DataService,
+    HttpClientModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

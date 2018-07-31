@@ -9,8 +9,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  {path: 'welcome', component: LandingPageComponent},
-  {path: 'login', component: LoginComponent}
+  {path: 'welcome', component: LandingPageComponent}
 ];
 
 @NgModule({
@@ -23,8 +22,7 @@ const routes: Routes = [
     RouterModule
   ],
   declarations: [
-    LandingPageComponent,
-    LoginComponent
+    LandingPageComponent
   ]
 })
 export class LandingModule { }

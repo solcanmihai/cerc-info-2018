@@ -17,3 +17,7 @@
     height: 100%;
     min-height: 750px;
 }
+
+footer div div{
+    color: rgb(100, 100, 100);
+}

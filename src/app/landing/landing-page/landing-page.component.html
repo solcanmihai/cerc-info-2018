@@ -1,7 +1,7 @@
 <nav class="navbar navbar-dark bg-dark">
   <div class="container">
     <a class="navbar-brand" href="#">Cerc info</a>
-    <a class="btn btn-outline-success ml-auto" [routerLink]="'/login'">Autentificare</a>
+    <button class="btn btn-outline-success ml-auto" data-toggle="modal" data-target="#loginModal">Autentificare</button>
   </div>
 </nav>
 
@@ -12,16 +12,15 @@
         <div class="row">
           <div class="col-md-8 pt-5">
             <h1 class="display-2">Cerc informatica eMag!</h1>
-            <blockquote class="blockquote">
+            <blockquote class="blockquote py-3">
               <p class="mb-0">“The question of whether a computer can think is no more interesting than the question of whether a submarine
                 can swim.” </p>
               <footer class="blockquote-footer">
                 <cite title="https://www.goodreads.com/author/show/1013817.Edsger_W_Dijkstra">Edsger W. Dijkstra</cite>
               </footer>
             </blockquote>
-            <p>Descriere cerc</p>
             <p>
-              <a class="btn btn-outline-success btn-lg" [routerLink]="'/login'" role="button">Autentificare &raquo;</a>
+              <button class="btn btn-outline-success btn-lg" data-toggle="modal" data-target="#loginModal">Autentificare &raquo;</button>
             </p>
           </div>
         </div>
@@ -74,3 +73,36 @@
       </div>
     </div>
 </footer>
+
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Autentificare</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div *ngIf="errorMessage" class="alert alert-danger alert-dismissible fade show" role="alert">
+             A simple danger alert—check it out!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="form-group">
+            <label for="inputEmail">Email address</label>
+            <input type="email" [ngModel]="details.email" class="form-control" id="inputEmail" placeholder="Email...">
+          </div>
+          <div class="form-group">
+            <label for="inputPassword">Password</label>
+            <input type="password" class="form-control" [ngModel]="details.password" id="inputPassword" placeholder="Parola..">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Inchide</button>
+          <button type="button" class="btn btn-success" (click)="handleSubmit()">Autentificare</button>
+        </div>
+      </div>
+    </div>
+  </div>

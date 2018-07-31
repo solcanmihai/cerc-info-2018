@@ -1,17 +1,76 @@
-<nav class="navbar navbar-inverse bg-inverse"> 
+<nav class="navbar navbar-dark bg-dark">
   <div class="container">
     <a class="navbar-brand" href="#">Cerc info</a>
-    <a class="btn btn-outline-success"[routerLink]="'/login'">Autentificare</a>
+    <a class="btn btn-outline-success ml-auto" [routerLink]="'/login'">Autentificare</a>
   </div>
 </nav>
 
-<div class="jumbotron">
-  <div class="container">
-    <h1 class="display-3">Cerc informatica eMag!</h1>
-    <p>Citat motivational</p>
-    <hr>
-    <p>Descriere cerc</p>
-    <p><a class="btn btn-primary btn-lg" [routerLink]="'/login'" role="button">Autentificare &raquo;</a></p>
+<header id="home-section">
+  <div class="dark-overlay">
+    <div class="home-inner text-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 pt-5">
+            <h1 class="display-2">Cerc informatica eMag!</h1>
+            <blockquote class="blockquote">
+              <p class="mb-0">“The question of whether a computer can think is no more interesting than the question of whether a submarine
+                can swim.” </p>
+              <footer class="blockquote-footer">
+                <cite title="https://www.goodreads.com/author/show/1013817.Edsger_W_Dijkstra">Edsger W. Dijkstra</cite>
+              </footer>
+            </blockquote>
+            <p>Descriere cerc</p>
+            <p>
+              <a class="btn btn-outline-success btn-lg" [routerLink]="'/login'" role="button">Autentificare &raquo;</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+</header>
 
+<section id="cerc-description" class="py-5 bg-dark text-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="display-3">Cine suntem noi?</h1>
+        <p class="lead text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum dolores explicabo voluptates fuga atque, quo neque
+          autem optio quidem. Illo perspiciatis nihil dolorem placeat? Quae soluta aut perspiciatis quas et officiis quasi
+          voluptatum vel. Cupiditate, ea iusto voluptatum fugiat laborum at ipsa, enim aperiam quia culpa officiis, similique
+          earum tempore dolore nostrum velit dolorum expedita? Consequuntur at incidunt rerum. Inventore nulla quae deserunt
+          temporibus autem eveniet libero, omnis voluptate soluta ipsa eius eos voluptates excepturi, unde repudiandae maxime
+          vitae dicta itaque praesentium officia consequuntur sapiente. Illo porro qui modi sunt eaque consequatur eum rem
+          possimus. Quidem, asperiores. Soluta, nisi ea! </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cerc-description" class="py-5 bg-success text-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="display-3">Contact</h1>
+        <p class="lead text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum dolores explicabo voluptates fuga atque, quo neque
+          autem optio quidem. Illo perspiciatis nihil dolorem placeat? Quae soluta aut perspiciatis quas et officiis quasi
+          voluptatum vel. Cupiditate, ea iusto voluptatum fugiat laborum at ipsa, enim aperiam quia culpa officiis, similique
+          earum tempore dolore nostrum velit dolorum expedita? Consequuntur at incidunt rerum. Inventore nulla quae deserunt
+          temporibus autem eveniet libero, omnis voluptate soluta ipsa eius eos voluptates excepturi, unde repudiandae maxime
+          vitae dicta itaque praesentium officia consequuntur sapiente. Illo porro qui modi sunt eaque consequatur eum rem
+          possimus. Quidem, asperiores. Soluta, nisi ea! </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-dark text-light p-3">
+    <div class="container d-flex flex-row">
+      <div class="mr-auto">
+          Copyright © 2017
+      </div>
+      <div>
+          © Solcan Mihai & Gasparovici Andrei
+      </div>
+    </div>
+</footer>

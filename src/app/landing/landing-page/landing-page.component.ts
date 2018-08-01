@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth.service';
 import { Router } from '@angular/router';
 
+
 class Details{
   email: string;
   password: string;
@@ -31,6 +32,7 @@ export class LandingPageComponent implements OnInit {
   handleSubmit(){
     this.authService.login(this.details).subscribe(data => {
       if(data == null){
+        
         this.router.navigateByUrl('/redirect');
       }
       else{

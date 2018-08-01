@@ -7,9 +7,11 @@ import { FormsModule } from '@angular/forms';
 //Components
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
-  {path: 'welcome', component: LandingPageComponent}
+  {path: 'welcome', component: LandingPageComponent},
+  {path: 'register/:token', component: RegisterComponent}
 ];
 
 @NgModule({
@@ -22,7 +24,8 @@ const routes: Routes = [
     RouterModule
   ],
   declarations: [
-    LandingPageComponent
+    LandingPageComponent,
+    RegisterComponent
   ]
 })
 export class LandingModule { }

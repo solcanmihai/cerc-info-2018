@@ -1,6 +1,6 @@
 <nav class="navbar navbar-dark bg-dark">
   <div class="container">
-    <a class="navbar-brand" href="#">Cerc info</a>
+    <a class="navbar-brand" routerLink="/">Cerc info</a>
     <button class="btn btn-outline-success ml-auto" data-toggle="modal" data-target="#loginModal">Autentificare</button>
   </div>
 </nav>
@@ -84,19 +84,16 @@
           </button>
         </div>
         <div class="modal-body">
-          <div *ngIf="errorMessage" class="alert alert-danger alert-dismissible fade show" role="alert">
-             A simple danger alert—check it out!
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+          <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+            {{errorMessage}}
           </div>
           <div class="form-group">
             <label for="inputEmail">Email address</label>
-            <input type="email" [ngModel]="details.email" class="form-control" id="inputEmail" placeholder="Email...">
+            <input type="email" [(ngModel)]="details.email" class="form-control" id="inputEmail" placeholder="Email...">
           </div>
           <div class="form-group">
             <label for="inputPassword">Password</label>
-            <input type="password" class="form-control" [ngModel]="details.password" id="inputPassword" placeholder="Parola..">
+            <input type="password" class="form-control" [(ngModel)]="details.password" id="inputPassword" placeholder="Parola..">
           </div>
         </div>
         <div class="modal-footer">

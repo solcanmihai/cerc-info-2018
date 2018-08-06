@@ -21,3 +21,13 @@
 footer div div{
     color: rgb(100, 100, 100);
 }
+
+.sidebar{
+    min-height: calc(100vh - 72px);
+    border-right: 3px solid green;
+}
+
+/* Bootstrap custom extensions */
+.border-3{
+    border-width: 3px !important;
+}

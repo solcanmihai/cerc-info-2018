@@ -7,13 +7,17 @@ import { FormsModule } from '@angular/forms';
 //Components
 import { TeacherDashboardComponent } from './teacher-dashboard/teacher-dashboard.component';
 import { WelcomeTeacherComponent } from './welcome-teacher/welcome-teacher.component';
+import { TeacherLessonsComponent } from './teacher-lessons/teacher-lessons.component';
+import { TeacherLessonComponent } from './teacher-lesson/teacher-lesson.component';
+import { TeacherEditLessonComponent } from './teacher-edit-lesson/teacher-edit-lesson.component';
 
 const routes: Routes = [
   {
     path: 'teacher-dashboard', 
     component: TeacherDashboardComponent, 
     children: [
-      {path: '', component: WelcomeTeacherComponent}
+      {path: '', component: WelcomeTeacherComponent},
+      {path: 'lessons', component: TeacherLessonsComponent}
     ]
   }
 ];
@@ -31,7 +35,10 @@ const routes: Routes = [
   ],
   declarations: [
     TeacherDashboardComponent,
-    WelcomeTeacherComponent
+    WelcomeTeacherComponent,
+    TeacherLessonsComponent,
+    TeacherLessonComponent,
+    TeacherEditLessonComponent
   ]
 })
 export class TeacherDashboardModule { }

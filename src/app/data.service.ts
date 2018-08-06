@@ -74,5 +74,11 @@ export class DataService {
     }
   }
 
+  //Lessons
+
+  getLessons(groupId: number){
+    return this.http.get(API + '/groups/' + groupId + '/lessons', {headers: this.headers});
+  }
+
   
 }

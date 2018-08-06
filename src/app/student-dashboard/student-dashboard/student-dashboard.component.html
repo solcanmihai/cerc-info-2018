@@ -8,6 +8,7 @@
 
       <ul class="col-sm-3 col-md-2 bg-dark sidebar list-group list-group-flush text-light pr-0">
           <a class="list-group-item text-light" #rla1="routerLinkActive" routerLinkActive [routerLink]="'/student-dashboard'" [class.bg-success]="rla1.isActive" [class.bg-dark]="!rla1.isActive" [routerLinkActiveOptions]="{exact: true}">Dashboard</a>
+          <a class="list-group-item text-light" #rla2="routerLinkActive" routerLinkActive [routerLink]="'/student-dashboard/lessons'" [class.bg-success]="rla2.isActive" [class.bg-dark]="!rla2.isActive" [routerLinkActiveOptions]="{exact: true}">Lectii</a>
       </ul>
 
 

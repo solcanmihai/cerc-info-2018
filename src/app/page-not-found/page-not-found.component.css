@@ -2,5 +2,5 @@ body {
     background: #dedede;
 }
 .page-wrap {
-    min-height: 100vh;
+    min-height: calc(100vh - 59px);
 }

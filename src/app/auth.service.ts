@@ -29,6 +29,7 @@ export class AuthService {
   // }
 
   login(details): Observable<string>{
+    console.log(details);
     return new Observable((observer) => {
       this.http.post(API + '/login', details).subscribe(data => {
         if(data['error'] != undefined){

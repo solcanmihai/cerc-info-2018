@@ -1,4 +1,24 @@
 <div class="row">
+  <table class="table" style="border-bottom: 3px solid green">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nume</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let group of groups; let i = index">
+        <th [routerLink]="'/admin-dashboard/group/' + group.groupId" scope="row">{{i + 1}}</th>
+        <td [routerLink]="'/admin-dashboard/group/' + group.groupId" >{{group.name}} </td>
+        <td><button class="btn btn-outline-danger" (click)="deleteGroup(group.groupId)">Sterge grup</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<button id="openModalButton" type="button" class="btn btn-success m-0" data-toggle="modal" data-target="#myModal">Adauga grup nou</button>
+
+<div class="row">
   <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <!-- Modal content-->
@@ -27,22 +47,4 @@
 
     </div>
   </div>
-  <button id="openModalButton" type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Adauga grup nou</button>
-</div>
-
-<div class="row">
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Nume</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let group of groups; let i = index">
-        <th scope="row">{{i + 1}}</th>
-        <td>{{group.name}} </td>
-      </tr>
-    </tbody>
-  </table>
 </div>

@@ -10,10 +10,11 @@ import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RedirectComponent } from './redirect/redirect.component';
 
-
 //Modules
 import { LandingModule } from './landing/landing.module';
 import { AdminDashboardModule } from './admin-dashboard/admin-dashboard.module';
+import { TeacherDashboardModule } from './teacher-dashboard/teacher-dashboard.module';
+import { StudentDashboardModule } from 'src/app/student-dashboard/student-dashboard.module';
 
 //Services
 import { AuthService } from './auth.service';
@@ -39,6 +40,8 @@ const routes: Routes = [
 
     //My modules
     AdminDashboardModule,
+    TeacherDashboardModule,
+    StudentDashboardModule,
     LandingModule,
 
     //Routing

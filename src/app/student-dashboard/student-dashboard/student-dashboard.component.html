@@ -1,0 +1,18 @@
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink="/">Dashboard student</a>
+  <button class="nav-link ml-auto btn btn-outline-success" (click)="handleLogout()">Logout</button>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+      <ul class="col-sm-3 col-md-2 bg-dark sidebar list-group list-group-flush text-light pr-0">
+          <a class="list-group-item text-light" #rla1="routerLinkActive" routerLinkActive [routerLink]="'/student-dashboard'" [class.bg-success]="rla1.isActive" [class.bg-dark]="!rla1.isActive" [routerLinkActiveOptions]="{exact: true}">Dashboard</a>
+      </ul>
+
+
+    <div class="col-sm-9 col-md-10">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

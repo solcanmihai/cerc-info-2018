@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../auth.service';
+import { AuthService } from 'src/app/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-admin-dashboard',
-  templateUrl: './admin-dashboard.component.html',
-  styleUrls: ['./admin-dashboard.component.css']
+  selector: 'app-student-dashboard',
+  templateUrl: './student-dashboard.component.html',
+  styleUrls: ['./student-dashboard.component.css']
 })
-export class AdminDashboardComponent implements OnInit {
-
-  rla1;
+export class StudentDashboardComponent implements OnInit {
 
   constructor(
     private authSerivice: AuthService,

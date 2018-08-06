@@ -12,6 +12,10 @@ import { AdminTeachersComponent } from './admin-teachers/admin-teachers.componen
 import { AdminStudentsComponent } from './admin-students/admin-students.component';
 import { AdminInviteUserComponent } from './admin-invite-user/admin-invite-user.component';
 
+//Modules
+import { SharedModule } from '../shared/shared.module';
+import { GroupDetailsComponent } from '../shared/group-details/group-details.component';
+
 const routes: Routes = [
   {
     path: 'admin-dashboard', 
@@ -21,7 +25,8 @@ const routes: Routes = [
       {path: 'groups', component: GroupsAdminComponent},
       {path: 'teachers', component: AdminTeachersComponent},
       {path: 'students', component: AdminStudentsComponent},
-      {path: 'invite', component: AdminInviteUserComponent}
+      {path: 'invite', component: AdminInviteUserComponent},
+      {path: 'group/:id', component: GroupDetailsComponent}
     ]
   }
 ];
@@ -33,6 +38,9 @@ const routes: Routes = [
     CommonModule,
     RouterModule,
     FormsModule,
+
+    //My modules
+    SharedModule,
 
     //Routing
     RouterModule.forRoot(routes)

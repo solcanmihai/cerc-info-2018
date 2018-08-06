@@ -23,10 +23,17 @@ export class RedirectComponent implements OnInit {
     }
 
     this.authService.me().subscribe(data => {
+      console.log(data);
       this.privileges = data['privilege'];
 
       if(this.privileges == 2){
         this.router.navigateByUrl('/admin-dashboard');
+      }
+      else if(this.privileges == 1){
+        this.router.navigateByUrl('/teacher-dashboard')
+      }
+      else if(this.privileges == 0){
+        this.router.navigateByUrl('/student-dashboard');
       }
     })
   }

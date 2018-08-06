@@ -1,10 +1,16 @@
-<div class="page-wrap d-flex flex-row align-items-center">
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" routerLink="/">Cerc info</a>
+    </div>
+</nav>
+
+<div class="page-wrap d-flex flex-row align-items-center bg-dark text-light">
   <div class="container">
       <div class="row justify-content-center">
           <div class="col-md-12 text-center">
               <span class="display-1 d-block">404</span>
               <div class="mb-4 lead">The page you are looking for was not found.</div>
-              <a [routerLink]="'/'" class="btn btn-link">Back to Home</a>
+              <a [routerLink]="'/'" class="btn btn-link text-success">Back to Home</a>
           </div>
       </div>
   </div>

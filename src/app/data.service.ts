@@ -21,8 +21,14 @@ export class DataService {
 
   private headers;
 
+  //Groups
+
   getGroups(){
-    return this.http.get(API + '/group', {headers: this.headers});
+    return this.http.get(API + '/groups', {headers: this.headers});
+  }
+
+  getGroup(groupId){
+    return this.http.get(API + '/groups/' + groupId, {headers: this.headers});
   }
 
   addGroup(title: string, description: string){
@@ -31,13 +37,21 @@ export class DataService {
       description: description
     }
 
-    this.http.post(API + '/group', body, {headers: this.headers}).subscribe(data => {
-      //do nothing
-    });
+    return this.http.post(API + '/groups', body, {headers: this.headers});
   }
 
+  deleteGroup(id: number){
+    return this.http.delete(API + '/groups/' + id, {headers: this.headers});
+  }
+
+  //Users
+
   getUsers(){
-    return this.http.get(API + '/user', {headers: this.headers});
+    return this.http.get(API + '/users', {headers: this.headers});
+  }
+
+  validateRegisterToken(code){
+    return this.http.get(API + '/invite/validate/' + code);
   }
 
   inviteUser(email, groupId, typeOfUser){
@@ -59,4 +73,6 @@ export class DataService {
       console.log('Mozzart');
     }
   }
+
+  
 }

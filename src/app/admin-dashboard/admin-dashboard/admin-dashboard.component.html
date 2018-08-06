@@ -1,51 +1,22 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <button class="navbar-toggler navbar-toggler-right hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <a class="navbar-brand" [routerLink]="">Dashboard Administrator</a>
-
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item active">
-        <a class="nav-link" (click)="handleLogout()">Logout</a>
-      </li>
-    </ul>
-  </div>
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink="/">Dashboard administrator</a>
+  <button class="nav-link ml-auto btn btn-outline-success" (click)="handleLogout()">Logout</button>
 </nav>
 
 <div class="container-fluid">
   <div class="row">
-    <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
-      <ul class="nav nav-pills flex-column">
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="'/admin-dashboard'" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Dashboard</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="'/admin-dashboard/groups'" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Grupuri</a>
-        </li>
+
+      <ul class="col-sm-3 col-md-2 bg-dark sidebar list-group list-group-flush text-light pr-0">
+          <a class="list-group-item text-light" #rla1="routerLinkActive" routerLinkActive [routerLink]="'/admin-dashboard'" [class.bg-success]="rla1.isActive" [class.bg-dark]="!rla1.isActive" [routerLinkActiveOptions]="{exact: true}">Dashboard</a>
+          <a class="list-group-item text-light" #rla2="routerLinkActive" routerLinkActive [routerLink]="'/admin-dashboard/groups'" [class.bg-success]="rla2.isActive" [class.bg-dark]="!rla2.isActive" [routerLinkActiveOptions]="{exact: true}">Grupuri</a>
+          <a class="list-group-item text-light" #rla3="routerLinkActive" routerLinkActive [routerLink]="'/admin-dashboard/teachers'" [class.bg-success]="rla3.isActive" [class.bg-dark]="!rla3.isActive" [routerLinkActiveOptions]="{exact: true}">Profesori</a>
+          <a class="list-group-item text-light" #rla4="routerLinkActive" routerLinkActive [routerLink]="'/admin-dashboard/students'" [class.bg-success]="rla4.isActive" [class.bg-dark]="!rla4.isActive" [routerLinkActiveOptions]="{exact: true}">Elevi</a>
+          <a class="list-group-item text-light" #rla5="routerLinkActive" routerLinkActive [routerLink]="'/admin-dashboard/invite'" [class.bg-success]="rla5.isActive" [class.bg-dark]="!rla5.isActive" [routerLinkActiveOptions]="{exact: true}">Invita utilizator nou</a>
       </ul>
 
-      <div class="nav nav-pills flex-column">
-        <div class="nav-item disabled">
-          <div class="nav-link">Utilizatori</div>
-        </div>
-      </div>
 
-      <ul class="nav nav-pills flex-column">
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="'/admin-dashboard/teachers'" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Profesori</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="'/admin-dashboard/students'" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Elevi</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="'/admin-dashboard/invite'" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Invita utilizator nou</a>
-        </li>
-      </ul>
-    </nav>
-
-    <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+    <div class="col-sm-9 col-md-10">
       <router-outlet></router-outlet>
-    </main>
+    </div>
   </div>
 </div>

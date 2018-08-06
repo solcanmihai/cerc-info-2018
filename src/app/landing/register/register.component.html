@@ -14,38 +14,36 @@
                 Inregistrare
               </div>
               <div class="card-body">
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                  A simple danger alert—check it out!
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
+                <div *ngIf="showError" class="alert alert-danger" role="alert">
+                  {{errorMessage}}
                 </div>
 
+                <div *ngIf="!showError">
+                  <fieldset disabled="disabled">
+                    <div class="form-group">
+                      <label for="emailInput">Adresa email</label>
+                      <input type="email" class="form-control" id="emailInput" placeholder="email@example.com">
+                    </div>
+                  </fieldset>
 
-                <fieldset disabled="disabled">
                   <div class="form-group">
-                    <label for="emailInput">Adresa email</label>
-                    <input type="email" class="form-control" id="emailInput" placeholder="email@example.com">
+                    <label for="nameInput">Nume</label>
+                    <input type="text" class="form-control" id="nameInput" placeholder="Nume..">
                   </div>
-                </fieldset>
 
-                <div class="form-group">
-                  <label for="nameInput">Nume</label>
-                  <input type="text" class="form-control" id="nameInput" placeholder="Nume..">
-                </div>
+                  <div class="form-group">
+                    <label for="passwordInput">Parola</label>
+                    <input type="password" class="form-control" id="passwordInput">
+                  </div>
 
-                <div class="form-group">
-                  <label for="passwordInput">Parola</label>
-                  <input type="password" class="form-control" id="passwordInput">
-                </div>
+                  <div class="form-group">
+                    <label for="passwordConfirmInput">Confirmare Parola</label>
+                    <input type="password" class="form-control" id="passwordConfirmInput">
+                  </div>
 
-                <div class="form-group">
-                  <label for="passwordConfirmInput">Confirmare Parola</label>
-                  <input type="password" class="form-control" id="passwordConfirmInput">
-                </div>
-
-                <div class="d-flex flex-row mt-4">
-                  <div class="btn btn-success ml-auto">Inregistrare</div>
+                  <div class="d-flex flex-row mt-4">
+                    <div class="btn btn-success ml-auto">Inregistrare</div>
+                  </div>
                 </div>
 
               </div>

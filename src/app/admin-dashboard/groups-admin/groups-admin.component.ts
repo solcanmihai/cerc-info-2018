@@ -16,14 +16,27 @@ export class GroupsAdminComponent implements OnInit {
     private dataService: DataService
   ) { }
 
-  ngOnInit() {
+  loadData(){
     this.dataService.getGroups().subscribe(data => {
       this.groups = data;
     })
   }
 
+  ngOnInit() {
+    this.loadData();
+  }
+
   handleSubmit(){
-    this.dataService.addGroup(this.name, this.description);
+    this.dataService.addGroup(this.name, this.description).subscribe(data => {
+      //Reload data after post request is finished
+      this.loadData();
+    })
+  }
+
+  deleteGroup(id: number){
+    this.dataService.deleteGroup(id).subscribe(data => {
+      this.loadData();
+    })
   }
 
 }

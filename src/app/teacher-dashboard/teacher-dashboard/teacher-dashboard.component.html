@@ -12,7 +12,7 @@
         <a class="list-group-item text-light" #rla4="routerLinkActive" routerLinkActive [routerLink]="'/teacher-dashboard/prezenta'" [class.bg-success]="rla4.isActive" [class.bg-dark]="!rla4.isActive" [routerLinkActiveOptions]="{exact: true}">Prezenta</a>
     </ul>
 
-    <div class="col-sm-9 col-md-10">
+    <div class="col-sm-9 col-md-10 p-0">
       <router-outlet></router-outlet>
     </div>
   </div>

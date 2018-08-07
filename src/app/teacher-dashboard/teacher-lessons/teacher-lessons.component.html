@@ -1,7 +1,7 @@
 <div class="list-group">
-  <div class="list-item" *ngFor="let lesson of lessons">
+  <div class="list-group-item" *ngFor="let lesson of lessons" [routerLink]="'/teacher-dashboard/lesson/' + lesson.lessonId">
     {{lesson.name}}
   </div>
 </div>
 
-<div class="btn btn-success" [routerLink]="'/teacher-dashboard/edit-lesson/0'">Adauga lectie</div>
+<div class="btn btn-success m-3" [routerLink]="'/teacher-dashboard/edit-lesson/0'">Adauga lectie</div>

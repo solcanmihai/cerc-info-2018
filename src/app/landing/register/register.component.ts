@@ -2,6 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../data.service';
 import { ActivatedRoute } from '@angular/router';
 
+class FormData{
+  password: string;
+  confirmPassword: string;
+  name: string;
+}
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -18,6 +24,7 @@ export class RegisterComponent implements OnInit {
   registerEmail: string;
   showError: boolean;
   token: string;
+  formData: FormData;
 
   ngOnInit() {
     this.registerEmail = '';

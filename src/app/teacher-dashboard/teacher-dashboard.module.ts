@@ -20,6 +20,7 @@ const routes: Routes = [
     children: [
       {path: '', component: WelcomeTeacherComponent},
       {path: 'lessons', component: TeacherLessonsComponent},
+      {path: 'lesson/:lessonId', component: TeacherLessonComponent},
       {path: 'edit-lesson/:lessonId', component: TeacherEditLessonComponent},
       {path: 'prezenta', component: TeacherPrezentaComponent},
       {path: 'teme', component: TeacherHomeworkComponent}

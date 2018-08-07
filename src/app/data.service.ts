@@ -80,8 +80,20 @@ export class DataService {
     return this.http.get(API + '/groups/' + groupId + '/lessons', {headers: this.headers});
   }
 
-  getLessonById(lessonId: number){
-    return this.http.get(API + '')
+  getLessonById(lessonId: number, groupId: number){
+    return this.http.get(API + '/groups/' + groupId + '/lessons/' + lessonId, {headers: this.headers});
+  }
+
+  editLesson(lessonId: number, groupId: number, lesson){
+    return this.http.put(API + '/groups/' + groupId + '/lessons/' + lessonId, lesson, {headers: this.headers});
+  }
+
+  deleteLessonById(groupId, lessonId){
+    return this.http.delete(API + '/groups/' + groupId + '/lessons/' + lessonId, {headers: this.headers});
+  }
+
+  addLesson(groupId, lesson){
+    return this.http.post(API + '/groups/' + groupId + '/lessons', lesson, {headers: this.headers});
   }
 
   

@@ -3,20 +3,20 @@
     <form>
         <div class="form-group">
             <label for="lessonName">Nume</label>
-            <input type="text" class="form-control"  id="lessonName" placeholder="Nume lectie..">
+            <input type="text" name="name" class="form-control" [(ngModel)]="lesson.name"  id="lessonName" placeholder="Nume lectie..">
         </div>
         <div class="form-group">
             <label for="lessonContent">Continut</label>
-            <textarea type="text" class="form-control"  id="lessonContent" placeholder="Continut lectie.."></textarea>
+            <textarea type="text" name="content" class="form-control" [(ngModel)]="lesson.content"   id="lessonContent" placeholder="Continut lectie.."></textarea>
         </div>
         <div class="form-group">
             <label for="lessonTags">Taguri</label>
-            <input type="text" class="form-control"  id="lessonTags" placeholder="Taguri lectie..">
+            <input type="text" name="tags" class="form-control" [(ngModel)]="lesson.tags"  id="lessonTags" placeholder="Taguri lectie..">
             <small id="tagslHelp" class="form-text text-muted">Un cuvant sau mai multe cuvinte, separate prin virgula.</small>
         </div>
         <div class="form-group">
-            <div class="btn btn-success">
-                Adauga lectie
+            <div class="btn btn-success" (click)="submitLesson()">
+                Salveaza
             </div>
         </div>
     </form>

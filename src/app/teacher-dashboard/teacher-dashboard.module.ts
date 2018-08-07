@@ -10,6 +10,8 @@ import { WelcomeTeacherComponent } from './welcome-teacher/welcome-teacher.compo
 import { TeacherLessonsComponent } from './teacher-lessons/teacher-lessons.component';
 import { TeacherLessonComponent } from './teacher-lesson/teacher-lesson.component';
 import { TeacherEditLessonComponent } from './teacher-edit-lesson/teacher-edit-lesson.component';
+import { TeacherHomeworkComponent } from './teacher-homework/teacher-homework.component';
+import { TeacherPrezentaComponent } from './teacher-prezenta/teacher-prezenta.component';
 
 const routes: Routes = [
   {
@@ -18,7 +20,9 @@ const routes: Routes = [
     children: [
       {path: '', component: WelcomeTeacherComponent},
       {path: 'lessons', component: TeacherLessonsComponent},
-      {path: 'edit-lesson/:lessonId', component: TeacherEditLessonComponent}
+      {path: 'edit-lesson/:lessonId', component: TeacherEditLessonComponent},
+      {path: 'prezenta', component: TeacherPrezentaComponent},
+      {path: 'teme', component: TeacherHomeworkComponent}
     ]
   }
 ];
@@ -39,7 +43,9 @@ const routes: Routes = [
     WelcomeTeacherComponent,
     TeacherLessonsComponent,
     TeacherLessonComponent,
-    TeacherEditLessonComponent
+    TeacherEditLessonComponent,
+    TeacherHomeworkComponent,
+    TeacherPrezentaComponent
   ]
 })
 export class TeacherDashboardModule { }

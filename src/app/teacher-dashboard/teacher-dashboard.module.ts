@@ -17,7 +17,8 @@ const routes: Routes = [
     component: TeacherDashboardComponent, 
     children: [
       {path: '', component: WelcomeTeacherComponent},
-      {path: 'lessons', component: TeacherLessonsComponent}
+      {path: 'lessons', component: TeacherLessonsComponent},
+      {path: 'edit-lesson/:lessonId', component: TeacherEditLessonComponent}
     ]
   }
 ];

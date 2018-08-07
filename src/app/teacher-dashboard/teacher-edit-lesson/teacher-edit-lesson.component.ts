@@ -11,6 +11,7 @@ export class TeacherEditLessonComponent implements OnInit {
 
   lesson;
   lessonId;
+  pageTitle;
 
   constructor(
     private dataService: DataService,
@@ -20,6 +21,13 @@ export class TeacherEditLessonComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.lessonId = params['lessonId'];
+
+      if(this.lessonId != 0){
+        
+      }
+      else{
+        this.pageTitle = "Adauga o lectie noua"
+      }
     })
   }
 

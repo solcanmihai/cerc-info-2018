@@ -80,5 +80,9 @@ export class DataService {
     return this.http.get(API + '/groups/' + groupId + '/lessons', {headers: this.headers});
   }
 
+  getLessonById(lessonId: number){
+    return this.http.get(API + '')
+  }
+
   
 }

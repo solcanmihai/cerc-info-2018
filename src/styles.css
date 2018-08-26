@@ -23,7 +23,7 @@ footer div div{
 }
 
 .sidebar{
-    min-height: calc(100vh - 72px);
+    min-height: calc(100vh - 61px);
     border-right: 3px solid green;
 }
 

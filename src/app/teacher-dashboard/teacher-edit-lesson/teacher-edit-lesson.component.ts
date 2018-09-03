@@ -34,7 +34,7 @@ export class TeacherEditLessonComponent implements OnInit {
         this.authService.me().subscribe(me => {
           this.groupId = me['groupId'];
 
-          this.dataService.getLessonById(this.lessonId, this.groupId).subscribe(lesson => {
+          this.dataService.getLessonById(this.lessonId).subscribe(lesson => {
             this.lesson = lesson;
           })
         })
@@ -55,7 +55,7 @@ export class TeacherEditLessonComponent implements OnInit {
       });
     }
     else{
-      this.dataService.editLesson(this.lessonId, this.groupId, this.lesson).subscribe(data => {
+      this.dataService.editLesson(this.lessonId, this.lesson).subscribe(data => {
         this.router.navigateByUrl('/teacher-dashboard/lesson/' + this.lessonId);
       })
     }

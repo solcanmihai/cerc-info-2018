@@ -28,6 +28,6 @@ export class AdminInviteUserComponent implements OnInit {
   }
 
   handleSubmit(){
-    this.dataService.inviteUser(this.email, this.selectedGroup.id, this.userType);
+    this.dataService.inviteUser(this.email, this.selectedGroup.groupId, this.userType);
   }
 }

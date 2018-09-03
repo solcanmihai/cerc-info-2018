@@ -23,7 +23,7 @@ export class LessonsComponent implements OnInit {
 
       console.log(me);
 
-      this.dataService.getLessons(this.groupId).subscribe(lessons => {
+      this.dataService.getLessons().subscribe(lessons => {
         this.lessons = lessons;
       })
     })

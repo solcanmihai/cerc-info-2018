@@ -1,16 +1,20 @@
 <div class="row">
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Nume</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let student of students; let i = index">
-        <th scope="row">{{i + 1}}</th>
-        <td>{{student.name}}</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="col-md-10 m-auto">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nume</th>
+          <th scope="col">Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of students; let i = index">
+          <th scope="row">{{i + 1}}</th>
+          <td>{{student.name}}</td>
+          <td>{{student.email}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

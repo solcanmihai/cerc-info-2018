@@ -20,6 +20,8 @@ export class GroupDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.group = new Object();
+
     this.route.params.subscribe(params => {
       this.id = params['id'];
       this.dataService.getGroup(this.id).subscribe(data => {

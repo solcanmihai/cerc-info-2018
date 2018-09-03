@@ -46,6 +46,14 @@ export class DataService {
 
   //Users
 
+  register(name: string, password: string, inviteCode: string){
+    let body = {
+      name, password, inviteCode
+    }
+
+    return this.http.post(API + '/register', body, {headers: this.headers});
+  }
+
   getUsers(){
     return this.http.get(API + '/users', {headers: this.headers});
   }
@@ -55,45 +63,34 @@ export class DataService {
   }
 
   inviteUser(email, groupId, typeOfUser){
-    let body = {email: email, group_id: groupId};
+    let body = {email: email, groupId: groupId, type: typeOfUser.toLowerCase()};
 
-    console.log(typeOfUser);
-
-    if(typeOfUser == 'Profesor'){
-      this.http.post(API + '/invite/teacher', body, {headers: this.headers}).subscribe(data => {
-        this.router.navigateByUrl('/');
-      });
-    }
-    else if(typeOfUser == 'Elev'){
-      this.http.post(API + '/invite/student', body, {headers: this.headers}).subscribe(data => {
-        this.router.navigateByUrl('/');
-      });
-    }
-    else{
-      console.log('Mozzart');
-    }
+    this.http.post(API + '/invite', body, {headers: this.headers}).subscribe(data => {
+      this.router.navigateByUrl('/');
+    });
+    
   }
 
   //Lessons
 
-  getLessons(groupId: number){
-    return this.http.get(API + '/groups/' + groupId + '/lessons', {headers: this.headers});
+  getLessons(){
+    return this.http.get(API + '/lessons', {headers: this.headers});
   }
 
-  getLessonById(lessonId: number, groupId: number){
-    return this.http.get(API + '/groups/' + groupId + '/lessons/' + lessonId, {headers: this.headers});
+  getLessonById(lessonId: number){
+    return this.http.get(API + '/lessons/' + lessonId, {headers: this.headers});
   }
 
-  editLesson(lessonId: number, groupId: number, lesson){
-    return this.http.put(API + '/groups/' + groupId + '/lessons/' + lessonId, lesson, {headers: this.headers});
+  editLesson(lessonId: number, lesson){
+    return this.http.put(API + '/lessons/' + lessonId, lesson, {headers: this.headers});
   }
 
-  deleteLessonById(groupId, lessonId){
-    return this.http.delete(API + '/groups/' + groupId + '/lessons/' + lessonId, {headers: this.headers});
+  deleteLessonById(lessonId){
+    return this.http.delete(API +  '/lessons/' + lessonId, {headers: this.headers});
   }
 
   addLesson(groupId, lesson){
-    return this.http.post(API + '/groups/' + groupId + '/lessons', lesson, {headers: this.headers});
+    return this.http.post(API + '/lessons', lesson, {headers: this.headers});
   }
 
   

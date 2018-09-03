@@ -29,7 +29,7 @@ export class TeacherLessonComponent implements OnInit {
       this.authService.me().subscribe(me => {
         this.groupId = me['groupId'];
         
-        this.dataService.getLessonById(this.lessonId, me['groupId']).subscribe(lesson => {
+        this.dataService.getLessonById(this.lessonId).subscribe(lesson => {
           this.lesson = lesson;
         })
       });
@@ -37,7 +37,7 @@ export class TeacherLessonComponent implements OnInit {
   }
 
   deleteLesson(){
-    this.dataService.deleteLessonById(this.groupId, this.lessonId).subscribe(data => {
+    this.dataService.deleteLessonById(this.groupId).subscribe(data => {
       this.router.navigateByUrl('/teacher-dashboard/lessons');
     })
   }

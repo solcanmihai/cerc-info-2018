@@ -30,7 +30,7 @@ export class StudentLessonComponent implements OnInit {
       this.authService.me().subscribe(me => {
         this.groupId = me['groupId'];
         
-        this.dataService.getLessonById(this.lessonId, me['groupId']).subscribe(lesson => {
+        this.dataService.getLessonById(this.lessonId).subscribe(lesson => {
           this.lesson = lesson;
         })
       });

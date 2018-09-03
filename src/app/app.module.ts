@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 //Components
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+// import { RedirectComponent } from './redirect/redirect.component';
 import { RedirectComponent } from './redirect/redirect.component';
 
 //Modules
@@ -21,9 +22,9 @@ import { AuthService } from './auth.service';
 import { DataService } from './data.service';
 
 const routes: Routes = [
-  {path: '', component: RedirectComponent},
-  {path: 'redirect', component: RedirectComponent},
-  {path: '**', component: PageNotFoundComponent}
+	{path: '', component: RedirectComponent},
+	{path: 'redirect', component: RedirectComponent},
+	{path: '**', component: PageNotFoundComponent}
 ]
 
 @NgModule({

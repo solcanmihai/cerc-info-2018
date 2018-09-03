@@ -1,22 +1,25 @@
 <div class="row">
-  <table class="table" style="border-bottom: 3px solid green">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Nume</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let group of groups; let i = index">
-        <th [routerLink]="'/admin-dashboard/group/' + group.groupId" scope="row">{{i + 1}}</th>
-        <td [routerLink]="'/admin-dashboard/group/' + group.groupId" >{{group.name}} </td>
-        <td><button class="btn btn-outline-danger" (click)="deleteGroup(group.groupId)">Sterge grup</button></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+  <div class="col-md-10 m-auto">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nume</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let group of groups; let i = index">
+            <th [routerLink]="'/admin-dashboard/group/' + group.groupId" scope="row">{{i + 1}}</th>
+            <td [routerLink]="'/admin-dashboard/group/' + group.groupId" >{{group.name}} </td>
+            <td class="d-flex flex-row-reverse align-items-end"><button class="btn btn-outline-danger btn-sm" (click)="deleteGroup(group.groupId)">Sterge grup</button></td>
+          </tr>
+        </tbody>
+      </table>
 
-<button id="openModalButton" type="button" class="btn btn-success m-0" data-toggle="modal" data-target="#myModal">Adauga grup nou</button>
+      <button id="openModalButton" type="button" class="btn btn-success m-0" data-toggle="modal" data-target="#myModal">Adauga grup nou</button>
+
+  </div>
+</div>
 
 <div class="row">
   <div id="myModal" class="modal fade" role="dialog">
@@ -28,7 +31,6 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
-        
             <div class="form-group">
               <label for="new-name">Nume</label>
               <input [(ngModel)]="name" class="form-control" id="new-name" type="text">

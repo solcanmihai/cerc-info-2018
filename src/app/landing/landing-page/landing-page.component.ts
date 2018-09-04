@@ -30,6 +30,13 @@ export class LandingPageComponent implements OnInit {
 
   ngOnInit() {
     this.details = new Details();
+    console.log(this.closeLoginModal);
+  }
+
+  clearModal(){
+    this.details.password = '';
+    this.details.email = '';
+    this.errorMessage = null;
   }
 
   handleSubmit(){ 
@@ -39,7 +46,15 @@ export class LandingPageComponent implements OnInit {
         this.router.navigateByUrl('/redirect');
       }
       else{
-        this.errorMessage = data;
+        if(this.errorMessage){
+          this.errorMessage = null;
+          setTimeout(() => {
+            this.errorMessage = data;
+          }, 700);
+        }
+        else{
+          this.errorMessage = data;
+        }
       }
     });
   }

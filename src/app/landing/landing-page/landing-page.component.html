@@ -79,7 +79,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="loginModalLabel">Autentificare</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close" #closeLoginModal>
+          <button type="button" class="close" (click)="clearModal()" data-dismiss="modal" aria-label="Close" #closeLoginModal>
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -97,7 +97,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Inchide</button>
+          <button type="button" class="btn btn-secondary" (click)="clearModal()" data-dismiss="modal">Inchide</button>
           <button type="button" class="btn btn-success" (keydown.enter)="handleSubmit()" (click)="handleSubmit()">Autentificare</button>
         </div>
       </div>

@@ -12,6 +12,7 @@ import { TeacherLessonComponent } from './teacher-lesson/teacher-lesson.componen
 import { TeacherEditLessonComponent } from './teacher-edit-lesson/teacher-edit-lesson.component';
 import { TeacherHomeworkComponent } from './teacher-homework/teacher-homework.component';
 import { TeacherPrezentaComponent } from './teacher-prezenta/teacher-prezenta.component';
+import { TeacherEditPrezentaComponent } from './teacher-edit-prezenta/teacher-edit-prezenta.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,7 @@ const routes: Routes = [
       {path: 'lesson/:lessonId', component: TeacherLessonComponent},
       {path: 'edit-lesson/:lessonId', component: TeacherEditLessonComponent},
       {path: 'prezenta', component: TeacherPrezentaComponent},
+      {path: 'prezenta/:prezentaId', component: TeacherEditPrezentaComponent},
       {path: 'teme', component: TeacherHomeworkComponent}
     ]
   }
@@ -46,7 +48,8 @@ const routes: Routes = [
     TeacherLessonComponent,
     TeacherEditLessonComponent,
     TeacherHomeworkComponent,
-    TeacherPrezentaComponent
+    TeacherPrezentaComponent,
+    TeacherEditPrezentaComponent
   ]
 })
 export class TeacherDashboardModule { }

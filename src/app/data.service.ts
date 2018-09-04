@@ -31,10 +31,12 @@ export class DataService {
     return this.http.get(API + '/groups/' + groupId, {headers: this.headers});
   }
 
-  addGroup(title: string, description: string){
+  addGroup(title: string, description: string, startDate: string, endDate: string){
     let body = {
       name: title,
-      description: description
+      description: description,
+      startDate,
+      endDate
     }
 
     return this.http.post(API + '/groups', body, {headers: this.headers});

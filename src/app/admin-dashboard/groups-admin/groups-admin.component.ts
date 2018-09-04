@@ -11,6 +11,8 @@ export class GroupsAdminComponent implements OnInit {
   groups;
   name: string;
   description: string;
+  startDate: string;
+  endDate: string;
 
   constructor(
     private dataService: DataService
@@ -27,7 +29,7 @@ export class GroupsAdminComponent implements OnInit {
   }
 
   handleSubmit(){
-    this.dataService.addGroup(this.name, this.description).subscribe(data => {
+    this.dataService.addGroup(this.name, this.description, this.startDate, this.endDate).subscribe(data => {
       //Reload data after post request is finished
       this.loadData();
     })

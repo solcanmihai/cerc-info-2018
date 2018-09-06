@@ -27,6 +27,14 @@ export class DataService {
     return this.http.get(API + '/groups', {headers: this.headers});
   }
 
+  getMyGroups(){
+    return this.http.get(API + '/groups/my', {headers: this.headers});
+  }
+
+  setActiveGroup(groupId: number){
+    return this.http.post(API + '/me/active-group', {groupId}, {headers: this.headers});
+  }
+
   getGroup(groupId){
     return this.http.get(API + '/groups/' + groupId, {headers: this.headers});
   }
@@ -95,5 +103,22 @@ export class DataService {
     return this.http.post(API + '/lessons', lesson, {headers: this.headers});
   }
 
+  //Attendance
+
+  getAttendanceList(attendanceId: number){
+    return this.http.get(API + '/attendance/users/' + attendanceId, {headers: this.headers});
+  }
+
+  toggleUserStatus(attendanceId: number, userId: number){
+    return this.http.get(API + '/attendance/' + attendanceId + '/' + userId + '/toggle');
+  }
+
+  getAttendances(groupId: number){
+    return this.http.get(API + '/attendance/' + groupId, {headers: this.headers});
+  }
+
+  newAttendance(groupId: number, date: string){
+    return this.http.post(API + '/attendance/' + groupId + '/' + date, {}, {headers: this.headers});
+  }
   
 }

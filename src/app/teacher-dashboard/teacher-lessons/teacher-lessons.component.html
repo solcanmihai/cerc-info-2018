@@ -1,6 +1,6 @@
 <div class="list-group">
   <div class="list-group-item" *ngFor="let lesson of lessons" [routerLink]="'/teacher-dashboard/lesson/' + lesson.lessonId">
-    {{lesson.name}}
+    {{lesson.title}}
   </div>
 </div>
 

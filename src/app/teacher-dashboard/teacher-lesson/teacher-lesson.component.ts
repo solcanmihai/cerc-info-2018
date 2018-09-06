@@ -25,14 +25,10 @@ export class TeacherLessonComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.lessonId = params['lessonId'];
-
-      this.authService.me().subscribe(me => {
-        this.groupId = me['groupId'];
-        
-        this.dataService.getLessonById(this.lessonId).subscribe(lesson => {
-          this.lesson = lesson;
-        })
-      });
+      this.dataService.getLessonById(this.lessonId).subscribe(lesson => {
+        this.lesson = lesson;
+        console.log(this.lesson);
+      })
     });
   }
 

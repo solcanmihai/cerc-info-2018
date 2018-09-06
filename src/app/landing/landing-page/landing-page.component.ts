@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { AuthService } from 'src/app/auth.service';
 import { Router } from '@angular/router';
 import { ViewChild, ElementRef} from '@angular/core';
-
+import * as $ from 'jquery';
 
 class Details{
   email: string;
@@ -19,7 +19,7 @@ class Details{
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.css']
 })
-export class LandingPageComponent implements OnInit {
+export class LandingPageComponent implements OnInit{
 
   details: Details;
   errorMessage: string;
@@ -30,8 +30,13 @@ export class LandingPageComponent implements OnInit {
 
   ngOnInit() {
     this.details = new Details();
-    console.log(this.closeLoginModal);
   }
+
+  //ngAfterViewInit(){
+  //  $(this.closeLoginModal.nativeElement).on('hidden.bs.modal', () => {
+  //    this.clearModal();
+  //  })
+  //}
 
   clearModal(){
     this.details.password = '';

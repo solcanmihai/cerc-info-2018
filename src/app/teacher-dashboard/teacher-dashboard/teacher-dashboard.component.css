@@ -1,3 +1,7 @@
 .dropdown-menu {
     border: 1px solid green;
 }
+
+.dropdown-item{
+    cursor: pointer;
+}

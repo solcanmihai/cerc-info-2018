@@ -16,6 +16,9 @@ export class TeacherEditLessonComponent implements OnInit {
   groupId;
   pageTitle;
 
+  newTag;
+  tags;
+
   constructor(
     private dataService: DataService,
     private authService: AuthService,
@@ -25,27 +28,50 @@ export class TeacherEditLessonComponent implements OnInit {
 
   ngOnInit() {
     this.lesson = new Object();
+    this.tags = [];
 
     this.route.params.subscribe(params => {
       this.lessonId = params['lessonId'];
 
       if(this.lessonId != 0){
         this.pageTitle = "Modifica lectie"
-        this.authService.me().subscribe(me => {
-          this.groupId = me['groupId'];
-
-          this.dataService.getLessonById(this.lessonId).subscribe(lesson => {
-            this.lesson = lesson;
-          })
+        this.dataService.getLessonById(this.lessonId).subscribe(lesson => {
+          this.lesson = lesson;
+          this.tags = this.lesson.tags;
         })
-      }
+    }
       else{
         this.pageTitle = "Adauga o lectie noua";
       }
     });
   }
 
+  deleteTag(name){
+    this.tags = this.tags.filter(x => {
+      return x != name;
+    })
+  }
+
+  addTag(){
+    if(this.newTag == ''){
+      return;
+    }
+
+    let res = this.tags.find((x) => {
+      return x == this.newTag;
+    })
+
+    if(res !== undefined){
+      this.newTag = '';
+      return;
+    }
+
+    this.tags.push(this.newTag);
+    this.newTag = '';
+  }
+
   submitLesson(){
+    this.lesson.tags = this.tags;
     if(this.lessonId == 0){
       this.authService.me().subscribe(me => {
         this.lesson['authorId'] = me['userId'];

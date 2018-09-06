@@ -2,14 +2,31 @@
   <div class="row">
     <div class="col-md-8 m-auto">
       <div class="list-group">
-        <li [routerLink]="'/teacher-dashboard/prezenta/1'" class="list-group-item list-group-item-action">Cras justo odio</li>
-        <li [routerLink]="'/teacher-dashboard/prezenta/1'" class="list-group-item list-group-item-action">Dapibus ac facilisis in</li>
-        <li [routerLink]="'/teacher-dashboard/prezenta/1'" class="list-group-item list-group-item-action">Morbi leo risus</li>
-        <li [routerLink]="'/teacher-dashboard/prezenta/1'" class="list-group-item list-group-item-action">Porta ac consectetur ac</li>
-        <li [routerLink]="'/teacher-dashboard/prezenta/1'" class="list-group-item list-group-item-action">Vestibulum at eros</li>
+        <li [routerLink]="'/teacher-dashboard/prezenta/' + item.attendanceId" class="list-group-item list-group-item-action" *ngFor="let item of attendanceList">{{item.date}}</li>
       </div>
 
-      <div class="btn btn-success mt-2">Prezenta noua</div>
+      <div class="btn btn-success mt-2" data-toggle="modal" data-target="#modalAttendance">Prezenta noua</div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalAttendance" tabindex="-1" role="dialog" aria-labelledby="newAttendance" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="newAttendanceTitle">Prezenta noua</h5>
+        <button #closeModalAttendance type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <label for="attendanceDate">Data prezenta</label>
+        <input type="date" id="attendanceDate" class="form-control" [(ngModel)]="newDate">        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Inchide</button>
+        <button type="button" class="btn btn-success" (click)="createNewAttendance()">Creaza</button>
+      </div>
     </div>
   </div>
 </div>

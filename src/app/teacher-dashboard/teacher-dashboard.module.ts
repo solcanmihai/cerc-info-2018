@@ -13,6 +13,7 @@ import { TeacherEditLessonComponent } from './teacher-edit-lesson/teacher-edit-l
 import { TeacherHomeworkComponent } from './teacher-homework/teacher-homework.component';
 import { TeacherPrezentaComponent } from './teacher-prezenta/teacher-prezenta.component';
 import { TeacherEditPrezentaComponent } from './teacher-edit-prezenta/teacher-edit-prezenta.component';
+import { SharedModule } from '../shared/shared.module';
 
 const routes: Routes = [
   {
@@ -39,7 +40,10 @@ const routes: Routes = [
      FormsModule,
  
      //Routing
-     RouterModule.forRoot(routes)
+     RouterModule.forRoot(routes),
+
+     //My modules
+     SharedModule
   ],
   declarations: [
     TeacherDashboardComponent,

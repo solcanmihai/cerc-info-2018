@@ -44,7 +44,7 @@ export class TeacherEditLessonComponent implements OnInit {
 
           this.buttonText = this.availableText[lesson['isRecommended']];
         })
-    }
+      }
       else{
         this.pageTitle = "Adauga o lectie noua";
       }

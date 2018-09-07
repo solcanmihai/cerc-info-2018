@@ -15,6 +15,7 @@ import { TeacherPrezentaComponent } from './teacher-prezenta/teacher-prezenta.co
 import { TeacherEditPrezentaComponent } from './teacher-edit-prezenta/teacher-edit-prezenta.component';
 import { SharedModule } from '../shared/shared.module';
 import { GroupDetailsComponent } from '../shared/group-details/group-details.component';
+import { TeacherEditUsersInGroupComponent } from './teacher-edit-users-in-group/teacher-edit-users-in-group.component';
 
 const routes: Routes = [
   {
@@ -28,7 +29,8 @@ const routes: Routes = [
       {path: 'prezenta', component: TeacherPrezentaComponent},
       {path: 'prezenta/:prezentaId', component: TeacherEditPrezentaComponent},
       {path: 'teme', component: TeacherHomeworkComponent},
-      {path: 'my-group', component: GroupDetailsComponent}
+      {path: 'my-group', component: GroupDetailsComponent},
+      {path: 'edit-group-users', component: TeacherEditUsersInGroupComponent}
     ]
   }
 ];
@@ -55,7 +57,8 @@ const routes: Routes = [
     TeacherEditLessonComponent,
     TeacherHomeworkComponent,
     TeacherPrezentaComponent,
-    TeacherEditPrezentaComponent
+    TeacherEditPrezentaComponent,
+    TeacherEditUsersInGroupComponent
   ]
 })
 export class TeacherDashboardModule { }

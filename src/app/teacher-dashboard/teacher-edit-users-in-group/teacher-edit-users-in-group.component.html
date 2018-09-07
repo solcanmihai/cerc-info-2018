@@ -1,0 +1,31 @@
+<div class="wrapper m-3">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1>Editeaza elevii din {{groupName}}</h1>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text"><i class="fas fa-search"></i></div>
+          </div> 
+        <input type="text" class="form-control" [(ngModel)]="searchText">
+        </div>
+      </div>
+    </div>
+  </div> 
+  <div class="container mt-2" *ngIf="users">
+    <div class="row">
+      <div class="col-md-6">
+        <h4>Elevi din afara grupului</h4>
+        <ul class="list-group">
+          <li (click)="toggleUser(user)" *ngFor="let user of getUsersNotInGroup() | filter : searchText" class="list-group-item p-1">{{user.name}}</li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <h4>Elevi din grup</h4>
+        <ul class="list-group">
+          <li (click)="toggleUser(user)" *ngFor="let user of getUsersInGroup() | filter : searchText" class="list-group-item p-1">{{user.name}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

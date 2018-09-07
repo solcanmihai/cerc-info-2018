@@ -33,7 +33,7 @@ export class TeacherLessonComponent implements OnInit {
   }
 
   deleteLesson(){
-    this.dataService.deleteLessonById(this.groupId).subscribe(data => {
+    this.dataService.deleteLessonById(this.lessonId).subscribe(data => {
       this.router.navigateByUrl('/teacher-dashboard/lessons');
     })
   }

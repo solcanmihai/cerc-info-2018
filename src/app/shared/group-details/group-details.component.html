@@ -1,20 +1,25 @@
-<div *ngIf="group.groupData" class="container-fluid m-3">
-  <div class="row">
+<div *ngIf="group.groupData" class="container-fluid p-3">
+  <div class="row mb-1">
     <div class="col">
       <h1>{{group?.groupData?.name}} </h1>
       <h5 >{{group?.groupData?.startDate}} - {{group?.groupData?.endDate}}</h5>
       <p class="lead">{{group?.groupData?.description}}</p>
     </div>
   </div>
-  <hr>
-  <div class="row">
+  <hr class="m-0">
+  <div class="row mt-2">
     <div class="col">
-      <label>Membrii:</label>
+      <label>Membri:</label>
       <div class="list-group">
         <div *ngFor="let student of group.users" class="list-group-item p-1">
           {{student}}
         </div>
       </div>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col">
+      <a class="btn btn-success" [routerLink]="'/teacher-dashboard/edit-group-users'">Editeaza membrii</a>
     </div>
   </div>
 </div>

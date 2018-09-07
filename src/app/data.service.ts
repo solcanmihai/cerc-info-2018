@@ -50,6 +50,10 @@ export class DataService {
     return this.http.post(API + '/groups', body, {headers: this.headers});
   }
 
+  getAllUsersByType(groupId: number){
+    return this.http.get(API + '/groups/' + groupId + '/all-users', {headers: this.headers});
+  }
+
   deleteGroup(id: number){
     return this.http.delete(API + '/groups/' + id, {headers: this.headers});
   }
@@ -78,7 +82,10 @@ export class DataService {
     this.http.post(API + '/invite', body, {headers: this.headers}).subscribe(data => {
       this.router.navigateByUrl('/');
     });
-    
+  }
+
+  toggleUserInGroup(userId: number, groupId: number){
+    return this.http.get(API + '/groups/' + groupId + '/' + userId + '/toggle', {headers: this.headers});
   }
 
   //Lessons

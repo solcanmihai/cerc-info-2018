@@ -6,9 +6,14 @@
   <hr>
   <p *ngIf="lesson">Taguri: <span *ngFor="let tag of lesson.tags" class="ml-2 p-2 badge badge-success">{{tag}}</span></p>
   <hr>
-  <p>Fisiere atasate:
+  <p *ngIf="lesson.uploads.length > 0; else noAttachments">Fisiere atasate:
     <a class="d-block" href={{api+item.url}} *ngFor="let item of lesson.uploads">{{item.filename}}</a>
   </p>
+
+  <ng-template #noAttachments>
+    <p>Nu exista fisiere atasate</p>
+  </ng-template>
+
   <div class="btn btn-danger my-1 mr-1 ml-0" (click)="deleteLesson()">Sterge lectie</div>
   <div class="btn btn-warning m-1" [routerLink]="'/teacher-dashboard/edit-lesson/' + lesson?.lessonId">Modifica lectie</div>
 </div>

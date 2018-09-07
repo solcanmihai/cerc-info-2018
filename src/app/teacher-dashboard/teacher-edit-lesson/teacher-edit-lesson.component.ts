@@ -16,7 +16,7 @@ export class TeacherEditLessonComponent implements OnInit {
   groupId;
   pageTitle;
 
-  files;
+  files: FileList[];
 
   buttonText;
   availableText = ['Adauga la recomandate', 'Sterge de la recomandate'];
@@ -34,6 +34,7 @@ export class TeacherEditLessonComponent implements OnInit {
   ngOnInit() {
     this.lesson = new Object();
     this.tags = [];
+    this.files = [];
 
     this.route.params.subscribe(params => {
       this.lessonId = params['lessonId'];

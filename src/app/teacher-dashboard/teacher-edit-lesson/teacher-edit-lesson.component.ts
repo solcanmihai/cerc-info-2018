@@ -90,7 +90,6 @@ export class TeacherEditLessonComponent implements OnInit {
     if(this.lessonId == 0){
       this.authService.me().subscribe(me => {
         this.lesson['authorId'] = me['userId'];
-        console.log(this.files);
         this.dataService.addLesson(me['groupId'], this.lesson, this.files).subscribe(data => {
           this.router.navigateByUrl('/teacher-dashboard/lessons');
         })

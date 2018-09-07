@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/app/data.service';
 import { AuthService } from '../../auth.service';
 import { Router } from '@angular/router';
+import { API } from 'src/app/classes/globals';
 
 @Component({
   selector: 'app-teacher-lesson',
@@ -14,6 +15,7 @@ export class TeacherLessonComponent implements OnInit {
   lessonId;
   groupId;
   lesson;
+  api;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,6 +25,7 @@ export class TeacherLessonComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.api = API;
     this.route.params.subscribe(params => {
       this.lessonId = params['lessonId'];
       this.dataService.getLessonById(this.lessonId).subscribe(lesson => {

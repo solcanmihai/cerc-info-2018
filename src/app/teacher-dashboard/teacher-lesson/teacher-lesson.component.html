@@ -1,12 +1,14 @@
-<div class="container-fluid mt-2">
+<div *ngIf="lesson" class="container-fluid mt-2">
   <h1>{{lesson?.title}}</h1>
   <p class="lead">
     {{lesson?.content}}
   </p>
   <hr>
-  <p *ngIf="lesson">Tags: <span *ngFor="let tag of lesson.tags" class="ml-2 p-2 badge badge-success">{{tag}}</span></p>
-    
+  <p *ngIf="lesson">Taguri: <span *ngFor="let tag of lesson.tags" class="ml-2 p-2 badge badge-success">{{tag}}</span></p>
   <hr>
+  <p>Fisiere atasate:
+    <a class="d-block" href={{api+item.url}} *ngFor="let item of lesson.uploads">{{item.filename}}</a>
+  </p>
   <div class="btn btn-danger my-1 mr-1 ml-0" (click)="deleteLesson()">Sterge lectie</div>
   <div class="btn btn-warning m-1" [routerLink]="'/teacher-dashboard/edit-lesson/' + lesson?.lessonId">Modifica lectie</div>
 </div>

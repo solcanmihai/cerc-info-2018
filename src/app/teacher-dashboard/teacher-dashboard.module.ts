@@ -17,6 +17,7 @@ import { SharedModule } from '../shared/shared.module';
 import { GroupDetailsComponent } from '../shared/group-details/group-details.component';
 import { TeacherEditUsersInGroupComponent } from './teacher-edit-users-in-group/teacher-edit-users-in-group.component';
 import { EditUsersInGroupComponent } from 'src/app/shared/edit-users-in-group/edit-users-in-group.component';
+import { EditRecommendedLessonsComponent } from './edit-recommended-lessons/edit-recommended-lessons.component';
 
 const routes: Routes = [
   {
@@ -31,7 +32,8 @@ const routes: Routes = [
       {path: 'prezenta/:prezentaId', component: TeacherEditPrezentaComponent},
       {path: 'teme', component: TeacherHomeworkComponent},
       {path: 'my-group', component: GroupDetailsComponent},
-      {path: 'edit-group-users', component: EditUsersInGroupComponent}
+      {path: 'edit-group-users', component: EditUsersInGroupComponent},
+      {path: 'edit-recommended-lessons', component: EditRecommendedLessonsComponent}
     ]
   }
 ];
@@ -48,7 +50,9 @@ const routes: Routes = [
      RouterModule.forRoot(routes),
 
      //My modules
-     SharedModule
+     SharedModule,
+
+
   ],
   declarations: [
     TeacherDashboardComponent,
@@ -59,7 +63,8 @@ const routes: Routes = [
     TeacherHomeworkComponent,
     TeacherPrezentaComponent,
     TeacherEditPrezentaComponent,
-    TeacherEditUsersInGroupComponent
+    TeacherEditUsersInGroupComponent,
+    EditRecommendedLessonsComponent
   ]
 })
 export class TeacherDashboardModule { }

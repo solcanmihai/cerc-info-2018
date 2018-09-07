@@ -90,6 +90,14 @@ export class DataService {
 
   //Lessons
 
+  getLessonsWithRecommended(){
+    return this.http.get(API + '/recommended-lessons', {headers: this.headers});
+  }
+
+  toggleLessonActive(lessonId: number){
+    return this.http.get(API + '/recommended-lessons/' + lessonId + '/toggle', {headers: this.headers});
+  }
+
   getLessons(){
     return this.http.get(API + '/lessons', {headers: this.headers});
   }

@@ -64,4 +64,5 @@ export class EditUsersInGroupComponent implements OnInit {
 
   getUsersNotInGroup(){
     return this.users.filter(x => !x.inGroup);
-  }}
+  }
+}

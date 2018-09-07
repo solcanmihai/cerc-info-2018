@@ -93,12 +93,12 @@
           </div>
           <div class="form-group">
             <label for="inputPassword">Parola</label>
-            <input type="password" class="form-control" [(ngModel)]="details.password" id="inputPassword" placeholder="Parola..">
+            <input type="password" class="form-control" (keyup.enter)="handleSubmit()" [(ngModel)]="details.password" id="inputPassword" placeholder="Parola..">
           </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" (click)="clearModal()" data-dismiss="modal">Inchide</button>
-          <button type="button" class="btn btn-success" (keydown.enter)="handleSubmit()" (click)="handleSubmit()">Autentificare</button>
+          <button type="button" class="btn btn-success" (click)="handleSubmit()">Autentificare</button>
         </div>
       </div>
     </div>

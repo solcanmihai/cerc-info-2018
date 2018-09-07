@@ -5,6 +5,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { EditUsersInGroupComponent } from './edit-users-in-group/edit-users-in-group.component';
+import { FilterxPipe } from './pipes/filterx.pipe';
 
 @NgModule({
   imports: [
@@ -12,11 +13,12 @@ import { EditUsersInGroupComponent } from './edit-users-in-group/edit-users-in-g
     RouterModule,
     FormsModule
   ],
-  declarations: [GroupDetailsComponent, FilterPipe, EditUsersInGroupComponent],
+  declarations: [GroupDetailsComponent, FilterPipe, EditUsersInGroupComponent, FilterxPipe],
   exports: [
     GroupDetailsComponent,
     EditUsersInGroupComponent,
-    FilterPipe
+    FilterPipe,
+    FilterxPipe
   ]
 })
 export class SharedModule { }

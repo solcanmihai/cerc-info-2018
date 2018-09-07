@@ -106,8 +106,28 @@ export class DataService {
     return this.http.get(API + '/lessons/' + lessonId, {headers: this.headers});
   }
 
-  editLesson(lessonId: number, lesson){
-    return this.http.put(API + '/lessons/' + lessonId, lesson, {headers: this.headers});
+  editLesson(lessonId: number, lesson, files, oldFiles){
+    const uploadData = new FormData();
+
+    console.log(oldFiles);
+    oldFiles = oldFiles.map(x => x['url'].split('/')[3]);
+    delete lesson.uploads;
+
+    console.log(files);
+
+    for(let i = 0; i < files.length; i++){
+      uploadData.append("uploads", files[i], files[i]['name']);
+    }
+
+    lesson.tags = lesson.tags.join();
+
+    uploadData.append('oldFiles', oldFiles);
+
+    Object.keys(lesson).forEach(key => {
+      const value = lesson[key];
+      uploadData.append(key, value);
+    });
+    return this.http.put(API + '/lessons/' + lessonId, uploadData, {headers: this.headers});
   }
 
   deleteLessonById(lessonId){
@@ -127,6 +147,8 @@ export class DataService {
       const value = lesson[key];
       uploadData.append(key, value);
     });
+
+    console.log(uploadData);
 
     return this.http.post(API + '/lessons', uploadData, {headers: this.headers});
   }

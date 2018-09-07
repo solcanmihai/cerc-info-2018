@@ -17,9 +17,7 @@ export class TeacherEditLessonComponent implements OnInit {
   pageTitle;
 
   files: FileList[];
-
-  buttonText;
-  availableText = ['Adauga la recomandate', 'Sterge de la recomandate'];
+  oldFiles;
 
   newTag;
   tags;
@@ -42,10 +40,11 @@ export class TeacherEditLessonComponent implements OnInit {
       if(this.lessonId != 0){
         this.pageTitle = "Modifica lectie"
         this.dataService.getLessonById(this.lessonId).subscribe(lesson => {
+          console.log(lesson);
           this.lesson = lesson;
           this.tags = this.lesson.tags;
 
-          this.buttonText = this.availableText[lesson['isRecommended']];
+          this.oldFiles = this.lesson.uploads;
         })
       }
       else{
@@ -55,17 +54,24 @@ export class TeacherEditLessonComponent implements OnInit {
   }
 
   onFileChange(event){
-    this.files = event.target.files;
+    let filesx = event.target.files;
+    for(let item of filesx){
+      this.files.push(item);
+    }
+  }
+
+  removeNewFile(file){
+    this.files = this.files.filter(x => x != file)
+  }
+
+  removeOldFile(file){
+    this.oldFiles = this.oldFiles.filter(x => x != file)
   }
 
   deleteTag(name){
     this.tags = this.tags.filter(x => {
       return x != name;
     })
-  }
-
-  toggleIsRecommended(){
-    
   }
 
   addTag(){
@@ -97,7 +103,7 @@ export class TeacherEditLessonComponent implements OnInit {
       });
     }
     else{
-      this.dataService.editLesson(this.lessonId, this.lesson).subscribe(data => {
+      this.dataService.editLesson(this.lessonId, this.lesson, this.files, this.oldFiles).subscribe(data => {
         this.router.navigateByUrl('/teacher-dashboard/lesson/' + this.lessonId);
       })
     }

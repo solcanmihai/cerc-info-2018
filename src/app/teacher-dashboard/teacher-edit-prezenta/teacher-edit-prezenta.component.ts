@@ -7,22 +7,21 @@ import { ChangeDetectionStrategy } from '@angular/core';
 @Component({
   selector: 'app-teacher-edit-prezenta',
   templateUrl: './teacher-edit-prezenta.component.html',
-  styleUrls: ['./teacher-edit-prezenta.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./teacher-edit-prezenta.component.css']
 })
 export class TeacherEditPrezentaComponent implements OnInit {
 
   attendanceId: number;
-  attendanceList;
-  showList: boolean;
+  attendanceList: any;
+
 
   searchText: string;
 
+
   constructor(
     private route: ActivatedRoute,
-    private dataService: DataService
+    private dataService: DataService 
   ) {
-    this.showList = false;
    }
 
   ngOnInit() {
@@ -32,35 +31,26 @@ export class TeacherEditPrezentaComponent implements OnInit {
     })
   }
 
+
   loadData(){
-    this.dataService.getAttendanceList(this.attendanceId).subscribe(data => {
-      console.log(this.attendanceList);
+    // this.attendanceList = [
+    //   {userId: 0, isPresent: 0, name: "Mihai"},
+    //   {userId: 1, isPresent: 0, name: "Popescu"},
+    //   {userId: 2, isPresent: 1, name: "Andrei"},
+    // ]
+
+    this.dataService.getAttendanceList(this.attendanceId).subscribe((data) => {
       this.attendanceList = data;
-      console.log('Data loaded');
-      console.log(this.attendanceList);
-      this.showList = true;
-
-      //let l = this.attendanceList.length;
-
-      //for(let i = 0; i < l; i++){
-      //  this.attendanceList[i].pos = i;
-
-      //  if(this.attendanceList[i].isPresent == 0){
-      //    this.attendanceList[i].isPresent = false;
-      //  }
-      //  else{
-      //    this.attendanceList[i].isPresent = true;
-      //  }
-      //}
-
-      //console.log(this.attendanceList);
-    })
+      console.log(data);
+    });
   }
 
-  toggleStudent(userId: number){
-    this.dataService.toggleUserStatus(this.attendanceId, userId).subscribe(data => {
-      let pos = this.attendanceList.findIndex(x => x.userId = userId);
-      this.attendanceList[pos].isPresent = !this.attendanceList[pos].isPresent;
+  toggleStudent(student){
+    let pos = this.attendanceList.findIndex(x => x.userId == student.userId);
+    console.log(pos);
+    this.attendanceList[pos].isPresent = !this.attendanceList[pos].isPresent;
+    this.dataService.toggleUserStatus(this.attendanceId, student.userId).subscribe(data => {
+      //Nu am nimic de facut aici
     })
   }
 }

@@ -14,6 +14,7 @@ import { TeacherHomeworkComponent } from './teacher-homework/teacher-homework.co
 import { TeacherPrezentaComponent } from './teacher-prezenta/teacher-prezenta.component';
 import { TeacherEditPrezentaComponent } from './teacher-edit-prezenta/teacher-edit-prezenta.component';
 import { SharedModule } from '../shared/shared.module';
+import { GroupDetailsComponent } from '../shared/group-details/group-details.component';
 
 const routes: Routes = [
   {
@@ -26,7 +27,8 @@ const routes: Routes = [
       {path: 'edit-lesson/:lessonId', component: TeacherEditLessonComponent},
       {path: 'prezenta', component: TeacherPrezentaComponent},
       {path: 'prezenta/:prezentaId', component: TeacherEditPrezentaComponent},
-      {path: 'teme', component: TeacherHomeworkComponent}
+      {path: 'teme', component: TeacherHomeworkComponent},
+      {path: 'my-group', component: GroupDetailsComponent}
     ]
   }
 ];

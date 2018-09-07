@@ -9,11 +9,15 @@
       </div>
     </div>
   </div> 
-  
-  <div class="container-fluid p-3 mb-3" style="overflow-y: scroll; border-top: 3px solid green">
+
+  <div class="container-fluid p-3 mb-3" *ngIf="attendanceList" style="overflow-y: scroll; border-top: 3px solid green">
     <div class="row no-gutters">
-      <ul class="list-group col-md-12" *ngIf="showList">
-        <li (click)="toggleStudent(student.userId)" *ngFor="let student of attendanceList" class="list-group-item p-1">{{student.name}}</li>
+      <ul class="list-group col-md-12">
+        <li (click)="toggleStudent(student)"
+         *ngFor="let student of attendanceList | filter : searchText"
+         [class.list-group-item-success]="student.isPresent"
+         class="list-group-item p-1">{{student.name}}
+        </li>
       </ul>
     </div>
   </div>

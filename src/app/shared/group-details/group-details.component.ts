@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../data.service';
 import { Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-group-details',
@@ -16,7 +17,8 @@ export class GroupDetailsComponent implements OnInit {
 
   constructor(
     private dataService: DataService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -24,11 +26,23 @@ export class GroupDetailsComponent implements OnInit {
 
     this.route.params.subscribe(params => {
       this.id = params['id'];
-      this.dataService.getGroup(this.id).subscribe(data => {
-        this.group = data;
-        console.log(data);
-      });
+      if(this.id == undefined){
+        this.authService.me().subscribe(me => {
+          this.id = me['activeGroupId'];
+          this.loadData();
+        })
+      }
+      else{
+        this.loadData();
+      }
     })
+  }
+
+  loadData(){
+    this.dataService.getGroup(this.id).subscribe(data => {
+      this.group = data;
+      console.log(data);
+    });
   }
 
 }

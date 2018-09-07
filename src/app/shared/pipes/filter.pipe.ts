@@ -7,8 +7,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class FilterPipe implements PipeTransform {
 
   transform(items: any[], searchText: string): any[] {
-    console.log("Search text: ", searchText);
-
     if(searchText == null || searchText == '' || searchText == undefined){
       return items;
     }

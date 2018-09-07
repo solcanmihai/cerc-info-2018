@@ -10,7 +10,7 @@
         <tbody>
           <tr *ngFor="let group of groups; let i = index">
             <th [routerLink]="'/admin-dashboard/group/' + group.groupId" scope="row">{{i + 1}}</th>
-            <td [routerLink]="'/admin-dashboard/group/' + group.groupId" >{{group.name}} </td>
+            <td [routerLink]="'/admin-dashboard/group/' + group.groupId" class="group-link">{{group.name}} </td>
             <td class="d-flex flex-row-reverse align-items-end"><button class="btn btn-outline-danger btn-sm" (click)="deleteGroup(group.groupId)">Sterge grup</button></td>
           </tr>
         </tbody>

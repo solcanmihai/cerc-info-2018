@@ -16,6 +16,9 @@ export class TeacherEditLessonComponent implements OnInit {
   groupId;
   pageTitle;
 
+  buttonText;
+  availableText = ['Adauga la recomandate', 'Sterge de la recomandate'];
+
   newTag;
   tags;
 
@@ -38,6 +41,8 @@ export class TeacherEditLessonComponent implements OnInit {
         this.dataService.getLessonById(this.lessonId).subscribe(lesson => {
           this.lesson = lesson;
           this.tags = this.lesson.tags;
+
+          this.buttonText = this.availableText[lesson['isRecommended']];
         })
     }
       else{
@@ -50,6 +55,10 @@ export class TeacherEditLessonComponent implements OnInit {
     this.tags = this.tags.filter(x => {
       return x != name;
     })
+  }
+
+  toggleIsRecommended(){
+    
   }
 
   addTag(){

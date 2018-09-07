@@ -15,6 +15,7 @@ import { AdminInviteUserComponent } from './admin-invite-user/admin-invite-user.
 //Modules
 import { SharedModule } from '../shared/shared.module';
 import { GroupDetailsComponent } from '../shared/group-details/group-details.component';
+import { EditUsersInGroupComponent } from 'src/app/shared/edit-users-in-group/edit-users-in-group.component';
 
 const routes: Routes = [
   {
@@ -26,7 +27,8 @@ const routes: Routes = [
       {path: 'teachers', component: AdminTeachersComponent},
       {path: 'students', component: AdminStudentsComponent},
       {path: 'invite', component: AdminInviteUserComponent},
-      {path: 'group/:id', component: GroupDetailsComponent}
+      {path: 'group/:id', component: GroupDetailsComponent},
+      {path: 'edit-group-users/:groupId', component: EditUsersInGroupComponent}
     ]
   }
 ];
@@ -45,6 +47,13 @@ const routes: Routes = [
     //Routing
     RouterModule.forRoot(routes)
   ],
-  declarations: [AdminDashboardComponent, WelcomeAdminComponent, GroupsAdminComponent, AdminTeachersComponent, AdminStudentsComponent, AdminInviteUserComponent]
+  declarations: [
+    AdminDashboardComponent,
+    WelcomeAdminComponent, 
+    GroupsAdminComponent, 
+    AdminTeachersComponent, 
+    AdminStudentsComponent,
+    AdminInviteUserComponent
+  ] 
 })
 export class AdminDashboardModule { }

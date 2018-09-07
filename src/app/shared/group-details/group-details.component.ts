@@ -14,6 +14,7 @@ export class GroupDetailsComponent implements OnInit {
 
   id;
   group;
+  privilege;
 
   constructor(
     private dataService: DataService,
@@ -29,11 +30,15 @@ export class GroupDetailsComponent implements OnInit {
       if(this.id == undefined){
         this.authService.me().subscribe(me => {
           this.id = me['activeGroupId'];
+          this.privilege = me['privilege'];
           this.loadData();
         })
       }
       else{
-        this.loadData();
+        this.authService.me().subscribe(me => {
+          this.privilege = me['privilege'];
+          this.loadData();
+        })
       }
     })
   }

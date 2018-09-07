@@ -16,6 +16,8 @@ export class TeacherEditLessonComponent implements OnInit {
   groupId;
   pageTitle;
 
+  files;
+
   buttonText;
   availableText = ['Adauga la recomandate', 'Sterge de la recomandate'];
 
@@ -51,6 +53,10 @@ export class TeacherEditLessonComponent implements OnInit {
     });
   }
 
+  onFileChange(event){
+    this.files = event.target.files;
+  }
+
   deleteTag(name){
     this.tags = this.tags.filter(x => {
       return x != name;
@@ -84,7 +90,8 @@ export class TeacherEditLessonComponent implements OnInit {
     if(this.lessonId == 0){
       this.authService.me().subscribe(me => {
         this.lesson['authorId'] = me['userId'];
-        this.dataService.addLesson(me['groupId'], this.lesson).subscribe(data => {
+        console.log(this.files);
+        this.dataService.addLesson(me['groupId'], this.lesson, this.files).subscribe(data => {
           this.router.navigateByUrl('/teacher-dashboard/lessons');
         })
       });

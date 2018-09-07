@@ -16,6 +16,7 @@ import { TeacherEditPrezentaComponent } from './teacher-edit-prezenta/teacher-ed
 import { SharedModule } from '../shared/shared.module';
 import { GroupDetailsComponent } from '../shared/group-details/group-details.component';
 import { TeacherEditUsersInGroupComponent } from './teacher-edit-users-in-group/teacher-edit-users-in-group.component';
+import { EditUsersInGroupComponent } from 'src/app/shared/edit-users-in-group/edit-users-in-group.component';
 
 const routes: Routes = [
   {
@@ -30,7 +31,7 @@ const routes: Routes = [
       {path: 'prezenta/:prezentaId', component: TeacherEditPrezentaComponent},
       {path: 'teme', component: TeacherHomeworkComponent},
       {path: 'my-group', component: GroupDetailsComponent},
-      {path: 'edit-group-users', component: TeacherEditUsersInGroupComponent}
+      {path: 'edit-group-users', component: EditUsersInGroupComponent}
     ]
   }
 ];

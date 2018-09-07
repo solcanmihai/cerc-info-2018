@@ -20,6 +20,14 @@
             <small id="tagslHelp" class="form-text text-muted">Dupa fiecare tag, apasa pe butonul de adaugare, sau apasa tasta enter. Apasa pe un tag pentru a il sterge.</small>
             <span *ngFor="let tag of tags" (click)="deleteTag(tag)" class="mt-2 mr-2 p-2 badge badge-success">{{tag}}</span>
         </div>
+
+        <div class="form-group mb-3">
+            <label>Atasamente</label>
+            <div class="input-group">
+                <input class="form-control-file" (change)="onFileChange($event)" #fileInput type="file" multiple>
+            </div>
+        </div>
+
         <div class="form-group">
             <div class="btn btn-success" (click)="submitLesson()">
                 Salveaza

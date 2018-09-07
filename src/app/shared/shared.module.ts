@@ -4,6 +4,7 @@ import { GroupDetailsComponent } from './group-details/group-details.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { EditUsersInGroupComponent } from './edit-users-in-group/edit-users-in-group.component';
 
 @NgModule({
   imports: [
@@ -11,9 +12,10 @@ import { FormsModule } from '@angular/forms';
     RouterModule,
     FormsModule
   ],
-  declarations: [GroupDetailsComponent, FilterPipe],
+  declarations: [GroupDetailsComponent, FilterPipe, EditUsersInGroupComponent],
   exports: [
     GroupDetailsComponent,
+    EditUsersInGroupComponent,
     FilterPipe
   ]
 })

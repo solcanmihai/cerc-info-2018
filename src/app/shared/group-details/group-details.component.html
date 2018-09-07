@@ -19,11 +19,12 @@
   </div>
   <div class="row mt-2">
     <div class="col">
-      <a class="btn btn-success" [routerLink]="'/teacher-dashboard/edit-group-users'">Editeaza membrii</a>
+      <a *ngIf="privilege == 1" class="btn btn-success" [routerLink]="'/teacher-dashboard/edit-group-users'">Editeaza membrii</a>
+      <a *ngIf="privilege == 2" class="btn btn-success" [routerLink]="'/admin-dashboard/edit-group-users/' + group.groupData.groupId">Editeaza membrii</a>
     </div>
   </div>
 </div>
 <div *ngIf="!group.groupData">
-  loading...
+  Loading...
 </div>
 

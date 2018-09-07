@@ -106,8 +106,21 @@ export class DataService {
     return this.http.delete(API +  '/lessons/' + lessonId, {headers: this.headers});
   }
 
-  addLesson(groupId, lesson){
-    return this.http.post(API + '/lessons', lesson, {headers: this.headers});
+  addLesson(groupId, lesson, files){
+    const uploadData = new FormData();
+
+    for(let i =0; i < files.length; i++){
+      uploadData.append("uploads", files[i], files[i]['name']);
+    }
+
+    lesson.tags = lesson.tags.join();
+
+    Object.keys(lesson).forEach(key => {
+      const value = lesson[key];
+      uploadData.append(key, value);
+    });
+
+    return this.http.post(API + '/lessons', uploadData, {headers: this.headers});
   }
 
   //Attendance

@@ -88,6 +88,28 @@ export class DataService {
     return this.http.get(API + '/groups/' + groupId + '/' + userId + '/toggle', {headers: this.headers});
   }
 
+  //Homework
+
+  getHomeworkById(homeworkId: number){
+    return this.http.get(API + '/homework/' + homeworkId, {headers: this.headers});
+  }
+
+  submitHomework(homeworkData){
+    return this.http.post(API + '/homework', homeworkData, {headers: this.headers});
+  }
+
+  putHomework(homeworkData, homeworkId){
+    return this.http.put(API + '/homework/' + homeworkId, homeworkData, {headers: this.headers});
+  }
+
+  getHomeworkList(){
+    return this.http.get(API + '/homework', {headers: this.headers});
+  }
+
+  deleteHomework(homeworkId){
+    return this.http.delete(API + '/homework/' + homeworkId, {headers: this.headers});
+  }
+
   //Lessons
 
   getLessonsWithRecommended(){

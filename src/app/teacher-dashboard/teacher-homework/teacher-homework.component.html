@@ -21,21 +21,27 @@
             <span *ngFor="let tag of tags" (click)="deleteTag(tag)" class="mt-2 mr-2 p-2 badge badge-success">{{tag}}</span>
         </div>
 
+
         <div class="form-group mb-3">
-            <p>Fisiere vechi:
-                <a class="d-block" *ngFor="let item of oldFiles">{{item.filename}} <i class="fas fa-trash-alt" (click)="removeOldFile(item)"></i></a>
-            </p>
-            <p>Fisiere noi:
-                <a class="d-block" *ngFor="let itemx of files">{{itemx.name}} <i class="fas fa-trash-alt" (click)="removeNewFile(itemx)"></i></a>
-            </p>
-
-            <button class="btn btn-success" (click)="fileInput.click()">Ataseaza fisiere</button>            
-
-
-            <div  class="input-group" style="display: none">
-                <input class="form-control-file" style="display:none" (change)="onFileChange($event)" #fileInput type="file" multiple>
-            </div>
+            <label>Taskuri</label>
+            <ul class="list-group">
+                <li *ngFor="let task of tasks; let i = index" class="list-group-item">
+                    <div class="d-flex flex-row">
+                        <input class="form-control" placeholder="Continut.." [name]="'content' + '_' + i" type="text" [(ngModel)]="task.content">
+                        <label class="ml-3 switch">
+                            <input [name]="'type' + '_' + i" type="checkbox" [(ngModel)]="task.type">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </li>
+            </ul>
         </div>
+
+        <div class="form-group mb-3">
+            <button class="btn btn-success" (click)="newTask()">Task nou</button>
+        </div>
+
+        <hr>
 
         <div class="form-group">
             <div class="btn btn-success" (click)="submitHomework()">

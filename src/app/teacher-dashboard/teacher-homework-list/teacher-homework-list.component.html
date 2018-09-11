@@ -1,0 +1,8 @@
+<div *ngIf="homeworkList">
+  <ul class="list-group">
+    <li *ngFor="let homework of homeworkList" [routerLink]="'/teacher-dashboard/homework/' + homework.homeworkId" class="list-group-item">
+      {{homework.title}}
+    </li>
+  </ul>
+  <a class="btn btn-success m-3" [routerLink]="'/teacher-dashboard/edit-homework/0'">Adauga o tema noua</a>
+</div>

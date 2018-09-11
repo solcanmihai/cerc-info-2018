@@ -18,6 +18,8 @@ import { GroupDetailsComponent } from '../shared/group-details/group-details.com
 import { TeacherEditUsersInGroupComponent } from './teacher-edit-users-in-group/teacher-edit-users-in-group.component';
 import { EditUsersInGroupComponent } from 'src/app/shared/edit-users-in-group/edit-users-in-group.component';
 import { EditRecommendedLessonsComponent } from './edit-recommended-lessons/edit-recommended-lessons.component';
+import { TeacherHomeworkListComponent } from './teacher-homework-list/teacher-homework-list.component';
+import { TeacherViewHomeworkComponent } from './teacher-view-homework/teacher-view-homework.component';
 
 const routes: Routes = [
   {
@@ -30,10 +32,12 @@ const routes: Routes = [
       {path: 'edit-lesson/:lessonId', component: TeacherEditLessonComponent},
       {path: 'prezenta', component: TeacherPrezentaComponent},
       {path: 'prezenta/:prezentaId', component: TeacherEditPrezentaComponent},
-      {path: 'teme', component: TeacherHomeworkComponent},
+      {path: 'teme', component: TeacherHomeworkListComponent},
       {path: 'my-group', component: GroupDetailsComponent},
       {path: 'edit-group-users', component: EditUsersInGroupComponent},
-      {path: 'edit-recommended-lessons', component: EditRecommendedLessonsComponent}
+      {path: 'edit-recommended-lessons', component: EditRecommendedLessonsComponent},
+      {path: 'edit-homework/:homeworkId', component: TeacherHomeworkComponent},
+      {path: 'homework/:homeworkId', component: TeacherViewHomeworkComponent}
     ]
   }
 ];
@@ -64,7 +68,9 @@ const routes: Routes = [
     TeacherPrezentaComponent,
     TeacherEditPrezentaComponent,
     TeacherEditUsersInGroupComponent,
-    EditRecommendedLessonsComponent
+    EditRecommendedLessonsComponent,
+    TeacherHomeworkListComponent,
+    TeacherViewHomeworkComponent
   ]
 })
 export class TeacherDashboardModule { }

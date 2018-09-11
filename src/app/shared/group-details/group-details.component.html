@@ -19,7 +19,7 @@
   </div>
   <div class="row mt-2">
     <div class="col">
-      <a *ngIf="privilege == 1" class="btn btn-success mr-2" [routerLink]="'/teacher-dashboard/edit-group-users'">Editeaza membrii</a>
+      <a *ngIf="privilege == 1" class="btn btn-success mr-2" [routerLink]="'/teacher-dashboard/edit-group-users'">Editeaza membri</a>
       <a *ngIf="privilege == 1" class="btn btn-success mr-2" [routerLink]="'/teacher-dashboard/edit-recommended-lessons'">Editeaza lectii recomandate</a>
       <a *ngIf="privilege == 2" class="btn btn-success mr-2" [routerLink]="'/admin-dashboard/edit-group-users/' + group.groupData.groupId">Editeaza membrii</a>
     </div>

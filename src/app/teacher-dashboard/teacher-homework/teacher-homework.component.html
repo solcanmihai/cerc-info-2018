@@ -1,3 +1,46 @@
-<p>
-  teacher-homework works!
-</p>
+<div class="container-fluid mt-2">
+    <h2>{{pageTitle}}</h2>
+    <form>
+        <div class="form-group">
+            <label for="homeworkTitle">Titlu</label>
+            <input type="text" name="title" class="form-control" [(ngModel)]="homework.title"  id="homeworkTitle" placeholder="Titlu tema..">
+        </div>
+        <div class="form-group">
+            <label for="homeworkDescription">Descriere</label>
+            <textarea type="text" name="description" class="form-control" [(ngModel)]="homework.description"   id="homeworkDescription" placeholder="Descriere tema.."></textarea>
+        </div>
+        <div class="form-group mb-3">
+            <label>Taguri</label>
+            <div class="input-group">
+                <input [(ngModel)]="newTag" type="text" name="tags" class="form-control d-inline-block" (keyup.enter)="addTag()" id="lessonTags" placeholder="Taguri tema..">
+                <div class="input-group-append">
+                    <button class="btn btn-success" type="button" (click)="addTag()">Adauga</button>
+                </div>
+            </div>
+            <small id="tagslHelp" class="form-text text-muted">Dupa fiecare tag, apasa pe butonul de adaugare, sau apasa tasta enter. Apasa pe un tag pentru a il sterge.</small>
+            <span *ngFor="let tag of tags" (click)="deleteTag(tag)" class="mt-2 mr-2 p-2 badge badge-success">{{tag}}</span>
+        </div>
+
+        <div class="form-group mb-3">
+            <p>Fisiere vechi:
+                <a class="d-block" *ngFor="let item of oldFiles">{{item.filename}} <i class="fas fa-trash-alt" (click)="removeOldFile(item)"></i></a>
+            </p>
+            <p>Fisiere noi:
+                <a class="d-block" *ngFor="let itemx of files">{{itemx.name}} <i class="fas fa-trash-alt" (click)="removeNewFile(itemx)"></i></a>
+            </p>
+
+            <button class="btn btn-success" (click)="fileInput.click()">Ataseaza fisiere</button>            
+
+
+            <div  class="input-group" style="display: none">
+                <input class="form-control-file" style="display:none" (change)="onFileChange($event)" #fileInput type="file" multiple>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="btn btn-success" (click)="submitHomework()">
+                Salveaza
+            </div>
+        </div>
+    </form>
+</div>

@@ -175,6 +175,12 @@ export class DataService {
     return this.http.post(API + '/lessons', uploadData, {headers: this.headers});
   }
 
+  //Lessons comments
+
+  addCommentToLesson(lessonId: number, content: string){
+    return this.http.post(API + '/lesson-comments', {lessonId, content}, {headers: this.headers});
+  }
+
   //Attendance
 
   getAttendanceList(attendanceId: number){

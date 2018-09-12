@@ -14,6 +14,8 @@ export class GroupsAdminComponent implements OnInit {
   startDate: string;
   endDate: string;
 
+  showError;
+
   constructor(
     private dataService: DataService
   ) { }
@@ -29,10 +31,23 @@ export class GroupsAdminComponent implements OnInit {
   }
 
   handleSubmit(){
+    if(this.showError == true){
+      return;
+    }
+
     this.dataService.addGroup(this.name, this.description, this.startDate, this.endDate).subscribe(data => {
       //Reload data after post request is finished
       this.loadData();
     })
+  }
+
+  validateDates(){
+    if(this.startDate && this.startDate >= this.endDate){
+      this.showError = true;
+    }
+    else{
+      this.showError = false;
+    }
   }
 
   deleteGroup(id: number){

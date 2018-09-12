@@ -43,17 +43,20 @@
 
             <div class="form-group">
               <label for="start-date">Data inceput</label>
-              <input type="date" id="start-date" [(ngModel)]="startDate" class="form-control">
+              <input type="date" id="start-date" [class.is-invalid]="showError" [(ngModel)]="startDate" class="form-control">
             </div>
 
             <div class="form-group">
               <label for="end-date">Data final</label>
-              <input type="date" id="end-date" [(ngModel)]="endDate" class="form-control">
+              <input (change)="validateDates()" type="date" [class.is-invalid]="showError" id="end-date" [(ngModel)]="endDate" class="form-control">
+              <div class="invalid-feedback">
+                Data de sfarsit trebuie sa fie dupa data de inceput
+              </div>
             </div>
         
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-success" data-dismiss="modal" (click)="handleSubmit()">Adauga</button>
+          <button type="button" class="btn btn-success" [class.disabled]="showError" [attr.data-dismiss]="!showError ? 'modal' : null" (click)="handleSubmit()">Adauga</button>
         </div>
       </div>
 

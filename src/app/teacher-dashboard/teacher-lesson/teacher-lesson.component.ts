@@ -17,6 +17,8 @@ export class TeacherLessonComponent implements OnInit {
   lesson;
   api;
 
+  newComment: string;
+
   constructor(
     private route: ActivatedRoute,
     private dataService: DataService,
@@ -28,16 +30,27 @@ export class TeacherLessonComponent implements OnInit {
     this.api = API;
     this.route.params.subscribe(params => {
       this.lessonId = params['lessonId'];
-      this.dataService.getLessonById(this.lessonId).subscribe(lesson => {
-        this.lesson = lesson;
-        console.log(this.lesson);
-      })
+      this.loadData(); 
     });
+  }
+
+  loadData(){
+    this.dataService.getLessonById(this.lessonId).subscribe(lesson => {
+      this.lesson = lesson;
+      console.log(this.lesson);
+    })
   }
 
   deleteLesson(){
     this.dataService.deleteLessonById(this.lessonId).subscribe(data => {
       this.router.navigateByUrl('/teacher-dashboard/lessons');
+    })
+  }
+
+  addNewComment(){
+    this.dataService.addCommentToLesson(this.lessonId, this.newComment).subscribe(data => {
+      this.newComment = '';
+      this.loadData();
     })
   }
 

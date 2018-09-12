@@ -110,6 +110,30 @@ export class DataService {
     return this.http.delete(API + '/homework/' + homeworkId, {headers: this.headers});
   }
 
+  //Submit homework
+
+  submitHomeworkSubmit(homeworkId, homework){
+    const uploadData = new FormData();
+
+    console.log(homework);
+
+     for(let i = 0; i < homework.length; i++){
+       if(homework[i].file){
+        uploadData.append("uploads", homework[i].file[0], homework[i].file[0]['name']);
+        delete homework[i].file;
+       }
+     }
+
+    // lesson.tags = lesson.tags.join();
+
+    // uploadData.append('oldFiles', oldFiles);
+
+    uploadData.append('submitData', JSON.stringify(homework));
+
+
+    return this.http.post(API + '/submit', uploadData, {headers: this.headers});
+  }
+
   //Lessons
 
   getLessonsWithRecommended(){

@@ -1,0 +1,39 @@
+<div *ngIf="homework" class="m-3">
+  <h2>Trimite {{homework.title}} </h2>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col">
+        <ul class="list-group">
+          <li *ngFor="let task of submitData; let i = index" class="list-group-item p-2">
+            <ng-container *ngIf="task.type == 0">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">{{task.content}}</span>
+                </div>
+                <input [(ngModel)]="task.link" type="text" class="form-control d-inline">
+              </div>
+            </ng-container>
+
+            <ng-container *ngIf="task.type == 1">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">{{task.content}}</span>
+                </div>
+                <div class="custom-file">
+                  <input (change)="handleFileInput($event.target.files, task)" type="file" class="custom-file-input" [id]="'inputGroupFile' + i">
+                  <label class="custom-file-label" [for]="'inputGroupFile' + i">{{task.fileName}}</label>
+                </div>
+              </div>
+            </ng-container>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="mt-2">
+    <button (click)="submitHomework()" class="btn btn-success">
+      Trimite tema
+    </button>
+  </div>
+</div>

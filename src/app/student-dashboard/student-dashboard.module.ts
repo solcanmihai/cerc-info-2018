@@ -9,6 +9,7 @@ import { WelcomeStudentComponent } from './welcome-student/welcome-student.compo
 import { LessonsComponent } from './lessons/lessons.component';
 import { HomeworkComponent } from './homework/homework.component';
 import { StudentLessonComponent } from './student-lesson/student-lesson.component';
+import { HomeworkListComponent } from './homework-list/homework-list.component';
 
 const routes: Routes = [
   {
@@ -17,7 +18,8 @@ const routes: Routes = [
     children: [
       {path: '', component: WelcomeStudentComponent},
       {path: 'lessons', component: LessonsComponent},
-      {path: 'lesson/:lessonId', component: StudentLessonComponent}
+      {path: 'lesson/:lessonId', component: StudentLessonComponent},
+      {path: 'homework-list', component: HomeworkListComponent}
     ]
   }
 ];
@@ -32,6 +34,6 @@ const routes: Routes = [
     //Routing
     RouterModule.forRoot(routes)
   ],
-  declarations: [WelcomeStudentComponent, StudentDashboardComponent, LessonsComponent, HomeworkComponent, StudentLessonComponent]
+  declarations: [WelcomeStudentComponent, StudentDashboardComponent, LessonsComponent, HomeworkComponent, StudentLessonComponent, HomeworkListComponent]
 })
 export class StudentDashboardModule { }

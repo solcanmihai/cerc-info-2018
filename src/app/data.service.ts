@@ -181,6 +181,10 @@ export class DataService {
     return this.http.post(API + '/lesson-comments', {lessonId, content}, {headers: this.headers});
   }
 
+  addReplyToComment(commentId, content){
+    return this.http.post(API + '/lesson-comments/reply', {commentId, content}, {headers: this.headers});
+  }
+
   //Attendance
 
   getAttendanceList(attendanceId: number){

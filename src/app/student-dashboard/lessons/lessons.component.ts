@@ -18,14 +18,9 @@ export class LessonsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.authService.me().subscribe(me => {
-      this.groupId = me['groupId'];
-
-      console.log(me);
-
-      this.dataService.getLessons().subscribe(lessons => {
-        this.lessons = lessons;
-      })
+    this.dataService.getLessons().subscribe(lessons => {
+      this.lessons = lessons;
+      console.log(lessons);
     })
   }
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../../data.service';
 
 @Component({
@@ -15,7 +15,8 @@ export class HomeworkSubmitComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private dataService: DataService
+    private dataService: DataService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -38,9 +39,8 @@ export class HomeworkSubmitComponent implements OnInit {
 
   submitHomework(){
     this.dataService.submitHomeworkSubmit(this.homeworkId, this.submitData).subscribe(data => {
-      console.log('done');
+      this.router.navigateByUrl('/student-dashboard/homework/' + this.homeworkId);
     });
-    // console.log(this.submitData);
   }
 
   handleFileInput(file, task){

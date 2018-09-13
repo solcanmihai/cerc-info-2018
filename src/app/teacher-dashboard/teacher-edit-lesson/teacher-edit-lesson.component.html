@@ -22,10 +22,10 @@
         </div>
 
         <div class="form-group mb-3">
-            <p>Fisiere vechi:
+            <p *ngIf="lessonId != 0">Fisiere vechi:
                 <a class="d-block" *ngFor="let item of oldFiles">{{item.filename}} <i class="fas fa-trash-alt" (click)="removeOldFile(item)"></i></a>
             </p>
-            <p>Fisiere noi:
+            <p>Fisiere <span *ngIf="lessonId != 0">noi</span>:
                 <a class="d-block" *ngFor="let itemx of files">{{itemx.name}} <i class="fas fa-trash-alt" (click)="removeNewFile(itemx)"></i></a>
             </p>
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth.service';
 import { Router } from '@angular/router';
+import { DataService } from 'src/app/data.service';
 
 @Component({
   selector: 'app-student-dashboard',
@@ -9,14 +10,31 @@ import { Router } from '@angular/router';
 })
 export class StudentDashboardComponent implements OnInit {
 
+  availableGroups;
+  activeGroupId: number;
+
   constructor(
     private authSerivice: AuthService,
-    private router: Router
+    private router: Router,
+    private dataService: DataService
   ) { 
 
   }
 
   ngOnInit() {
+    this.dataService.getMyGroups().subscribe(data => {
+      this.authSerivice.me().subscribe(me => {
+        this.availableGroups = data;
+        this.activeGroupId = me['activeGroupId'];
+      })
+    })
+  }
+
+  setActiveGroup(groupId: number){
+    console.log(groupId);
+    this.dataService.setActiveGroup(groupId).subscribe(data => {
+      this.router.navigateByUrl('/redirect');
+    })
   }
   
   handleLogout(){

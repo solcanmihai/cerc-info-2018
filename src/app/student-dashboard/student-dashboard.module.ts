@@ -11,6 +11,7 @@ import { HomeworkComponent } from './homework/homework.component';
 import { StudentLessonComponent } from './student-lesson/student-lesson.component';
 import { HomeworkListComponent } from './homework-list/homework-list.component';
 import { HomeworkSubmitComponent } from './homework-submit/homework-submit.component';
+import { StudentRecomendedLessonsComponent } from './student-recomended-lessons/student-recomended-lessons.component';
 
 const routes: Routes = [
   {
@@ -22,7 +23,8 @@ const routes: Routes = [
       {path: 'lesson/:lessonId', component: StudentLessonComponent},
       {path: 'homework-list', component: HomeworkListComponent},
       {path: 'homework/:homeworkId', component: HomeworkComponent},
-      {path: 'homework-submit/:homeworkId', component: HomeworkSubmitComponent}
+      {path: 'homework-submit/:homeworkId', component: HomeworkSubmitComponent},
+      {path: 'lectii-recomandate', component: StudentRecomendedLessonsComponent}
     ]
   }
 ];
@@ -37,6 +39,6 @@ const routes: Routes = [
     //Routing
     RouterModule.forRoot(routes)
   ],
-  declarations: [WelcomeStudentComponent, StudentDashboardComponent, LessonsComponent, HomeworkComponent, StudentLessonComponent, HomeworkListComponent, HomeworkSubmitComponent]
+  declarations: [WelcomeStudentComponent, StudentDashboardComponent, LessonsComponent, HomeworkComponent, StudentLessonComponent, HomeworkListComponent, HomeworkSubmitComponent, StudentRecomendedLessonsComponent]
 })
 export class StudentDashboardModule { }

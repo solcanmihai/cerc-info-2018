@@ -1,7 +1,8 @@
-<h3>Toate lectiile</h3>
+<h3>Lectii recomandate</h3>
 <div class="list-group">
   <div class="list-group-item" *ngFor="let lesson of lessons" [routerLink]="'/student-dashboard/lesson/' + lesson.lessonId">
     {{lesson.title}}
   </div>
 </div>
+
 

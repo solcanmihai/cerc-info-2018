@@ -131,7 +131,7 @@ export class DataService {
     uploadData.append('submitData', JSON.stringify(homework));
 
 
-    return this.http.post(API + '/submit', uploadData, {headers: this.headers});
+    return this.http.post(API + '/submit/' + homeworkId, uploadData, {headers: this.headers});
   }
 
   //Lessons

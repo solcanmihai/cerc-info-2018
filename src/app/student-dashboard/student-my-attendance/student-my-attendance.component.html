@@ -1,0 +1,10 @@
+<div *ngIf="me && prezenta">
+  <h2 class="p-2">Prezenta mea in {{me.activeGroupName}} </h2>
+  <ul class="list-group">
+    <li *ngFor="let x of prezenta" class="list-group-item">
+      {{x.date}} 
+      <span *ngIf="x.isPresent" class="badge badge-success p-2 ml-2" style="font-size: 14px">Prezent</span>
+      <span *ngIf="!x.isPresent" class="badge badge-danger p-2 ml-2" style="font-size: 14px">Absent</span>
+    </li>
+  </ul>
+</div>

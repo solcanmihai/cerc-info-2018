@@ -23,19 +23,15 @@ export class TeacherPrezentaComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.authService.me().subscribe(me => {
-      this.dataService.getAttendances(me['activeGroupId']).subscribe(data => {
-        this.attendanceList = data;
-      })
+    this.dataService.getAttendances().subscribe(data => {
+      this.attendanceList = data;
     })
   }
 
   createNewAttendance(){
-    this.authService.me().subscribe(me => {
-      this.dataService.newAttendance(me['activeGroupId'], this.newDate).subscribe(data => {
-        this.router.navigateByUrl('/teacher-dashboard/prezenta/' + data['attendanceId']);
-        this.closeModalAttendance.nativeElement.click();
-      })
+    this.dataService.newAttendance(this.newDate).subscribe(data => {
+      this.router.navigateByUrl('/teacher-dashboard/prezenta/' + data['attendanceId']);
+      this.closeModalAttendance.nativeElement.click();
     })
   }
 

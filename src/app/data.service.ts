@@ -219,12 +219,16 @@ export class DataService {
     return this.http.get(API + '/attendance/' + attendanceId + '/' + userId + '/toggle');
   }
 
-  getAttendances(groupId: number){
-    return this.http.get(API + '/attendance/' + groupId, {headers: this.headers});
+  getAttendances(){
+    return this.http.get(API + '/attendance/', {headers: this.headers});
   }
 
-  newAttendance(groupId: number, date: string){
-    return this.http.post(API + '/attendance/' + groupId + '/' + date, {}, {headers: this.headers});
+  newAttendance(date: string){
+    return this.http.post(API + '/attendance/' + date, {}, {headers: this.headers});
+  }
+
+  getMyAttendance(){
+    return this.http.get(API + '/attendance', {headers: this.headers});
   }
   
 }

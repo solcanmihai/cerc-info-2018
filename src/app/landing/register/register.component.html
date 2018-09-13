@@ -33,16 +33,19 @@
 
                   <div class="form-group">
                     <label for="passwordInput">Parola</label>
-                    <input type="password" [(ngModel)]="formData.password"  class="form-control" id="passwordInput">
+                    <input type="password" [(ngModel)]="formData.password" (input)="matchPasswords()" [class.is-invalid]="passwordError" class="form-control" id="passwordInput">
                   </div>
 
                   <div class="form-group">
                     <label for="passwordConfirmInput">Confirmare Parola</label>
-                    <input type="password" [(ngModel)]="formData.confirmPassword" class="form-control" id="passwordConfirmInput">
+                    <input type="password" [(ngModel)]="formData.confirmPassword" [class.is-invalid]="passwordError" (input)="matchPasswords()" class="form-control" id="passwordConfirmInput">
+                    <div class="invalid-feedback">
+                      Parolele nu se potrivesc
+                    </div>
                   </div>
 
                   <div class="d-flex flex-row mt-4">
-                    <div class="btn btn-success ml-auto" (click)="handleSubmit()">Inregistrare</div>
+                    <div class="btn btn-success ml-auto" (click)="handleSubmit()" [class.disabled]="passwordError">Inregistrare</div>
                   </div>
                 </div>
 

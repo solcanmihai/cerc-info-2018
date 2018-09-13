@@ -30,11 +30,15 @@ export class RegisterComponent implements OnInit {
   token: string;
   formData: FormData;
 
+  passwordError: boolean;
+
   ngOnInit() {
     this.registerEmail = '';
     this.errorMessage = '';
     this.showError = false;
     this.formData = new FormData();
+
+    this.passwordError = false;
 
     this.activatedRoute.params.subscribe(data => {
       this.token = data.token;
@@ -51,7 +55,21 @@ export class RegisterComponent implements OnInit {
     })
   }
 
+  matchPasswords(){
+    console.log('match');
+    if(this.formData.password && this.formData.confirmPassword && this.formData.password != this.formData.confirmPassword){
+      this.passwordError = true;
+    }
+    else{
+      this.passwordError = false;
+    }
+  }
+
   handleSubmit(){
+    if(this.passwordError == true){
+      return;
+    }
+
     this.dataService.register(this.formData.name, this.formData.password, this.token).subscribe(data => {
       this.router.navigateByUrl('/redirect');
     })

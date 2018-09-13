@@ -11,6 +11,7 @@ export class StudentRecomendedLessonsComponent implements OnInit {
 
   groupId: number;
   lessons;
+  lessonsx;
 
   constructor(
     private authService: AuthService,
@@ -19,7 +20,8 @@ export class StudentRecomendedLessonsComponent implements OnInit {
 
   ngOnInit() {
     this.dataService.getLessonsWithRecommended().subscribe(lessons => {
-      this.lessons = lessons;
+      this.lessonsx = lessons;
+      this.lessons = this.lessonsx.filter(x => x.isRecommended);
     })
   }
 

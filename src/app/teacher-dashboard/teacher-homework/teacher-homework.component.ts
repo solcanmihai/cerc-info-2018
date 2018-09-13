@@ -62,11 +62,14 @@ export class TeacherHomeworkComponent implements OnInit {
         this.router.navigateByUrl('/teacher-dashboard');
       })
     }
-
   }
 
   newTask(){
     this.tasks.push({content: '', type: 0});
+  }
+
+  removeTask(task){
+    this.tasks = this.tasks.filter(x => x != task)
   }
   
   deleteTag(name){

@@ -28,10 +28,12 @@
                 <li *ngFor="let task of tasks; let i = index" class="list-group-item">
                     <div class="d-flex flex-row">
                         <input class="form-control" placeholder="Continut.." [name]="'content' + '_' + i" type="text" [(ngModel)]="task.content">
+                        <label class="ml-3 pt-2">Fisier: </label>
                         <label class="ml-3 switch">
                             <input [name]="'type' + '_' + i" type="checkbox" [(ngModel)]="task.type">
                             <span class="slider round"></span>
                         </label>
+                        <i class="fas fa-times fa-2x ml-2" (click)="removeTask(task)"></i>
                     </div>
                 </li>
             </ul>

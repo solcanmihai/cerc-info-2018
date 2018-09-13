@@ -1,7 +1,7 @@
 <div *ngIf="homework" class="m-3">
-  <h1>{{homework.title}}</h1>
+  <h2>{{homework.title}}<span class="badge badge-success ml-3">{{homework.status}}</span></h2>
   <p class="lead">{{homework.description}}</p>
-  <h3>Taskuri</h3>
+  <h4>Taskuri</h4>
   <ul class="list-group">
     <li *ngFor="let task of homework.tasks" class="list-group-item">
       {{task.content}} - tip: <span *ngIf="task.type == 0">Link</span><span *ngIf="task.type == 1">Fisier</span>

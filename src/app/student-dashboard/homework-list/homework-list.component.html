@@ -1,7 +1,7 @@
 <div *ngIf="homeworkList">
   <ul class="list-group">
     <li *ngFor="let homework of homeworkList" [routerLink]="'/student-dashboard/homework/' + homework.homeworkId" class="list-group-item">
-      {{homework.title}}
+      {{homework.title}}<span class="badge badge-success ml-3 p-2">{{homework.status}}</span>
     </li>
   </ul>
 </div>

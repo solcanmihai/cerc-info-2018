@@ -16,6 +16,19 @@
         </div>
       </div>
 
+      <div *ngFor="let reply of comment.replies" class="col-md-11 offset-md-1">
+        <div class="card my-1">
+          <div class="card-body py-0 px-3">
+            <div class="top-section d-flex flex-row justify-content-between pb-1"><span>{{reply.dateAgo}}, {{reply.name}} a spus:</span>
+            </div>
+            <hr class="p-0 m-0">
+            <div class="body-section py-1">
+              {{reply.content}}
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="col-md-11 offset-md-1" *ngIf="comment.showReplyForm">
         <div class="card">
           <div class="card-body p-1">
@@ -31,20 +44,7 @@
           </div>
         </div>
       </div>
-      
 
-      <div *ngFor="let reply of comment.replies" class="col-md-11 offset-md-1">
-        <div class="card my-1">
-          <div class="card-body py-0 px-3">
-            <div class="top-section d-flex flex-row justify-content-between pb-1"><span>{{reply.dateAgo}}, {{reply.name}} a spus:</span>
-            </div>
-            <hr class="p-0 m-0">
-            <div class="body-section py-1">
-              {{reply.content}}
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </ng-container>
   <hr>

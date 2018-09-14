@@ -14,6 +14,7 @@ import { HomeworkSubmitComponent } from './homework-submit/homework-submit.compo
 import { StudentRecomendedLessonsComponent } from './student-recomended-lessons/student-recomended-lessons.component';
 import { GroupDetailsComponent } from '../shared/group-details/group-details.component';
 import { StudentMyAttendanceComponent } from './student-my-attendance/student-my-attendance.component';
+import { SharedModule } from '../shared/shared.module';
 
 const routes: Routes = [
   {
@@ -41,7 +42,10 @@ const routes: Routes = [
     FormsModule,
 
     //Routing
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+
+    //My modules
+    SharedModule
   ],
   declarations: [WelcomeStudentComponent, StudentDashboardComponent, LessonsComponent, HomeworkComponent, StudentLessonComponent, HomeworkListComponent, HomeworkSubmitComponent, StudentRecomendedLessonsComponent, StudentMyAttendanceComponent]
 })

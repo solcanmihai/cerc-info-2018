@@ -17,7 +17,7 @@ export class TeacherLessonComponent implements OnInit {
   lesson;
   api;
 
-  newComment: string;
+  // newComment: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -38,11 +38,9 @@ export class TeacherLessonComponent implements OnInit {
     this.dataService.getLessonById(this.lessonId).subscribe(lesson => {
       this.lesson = lesson;
 
-      this.lesson['comments'].map(x => {
-        x.showReplyForm = false;
-      })
-
-      console.log(this.lesson);
+      // this.lesson['comments'].map(x => {
+      //   x.showReplyForm = false;
+      // })
     })
   }
 
@@ -52,30 +50,29 @@ export class TeacherLessonComponent implements OnInit {
     })
   }
 
-  addNewComment(){
-    this.dataService.addCommentToLesson(this.lessonId, this.newComment).subscribe(data => {
-      this.newComment = '';
-      this.loadData();
-    })
-  }
+  // addNewComment(){
+  //   this.dataService.addCommentToLesson(this.lessonId, this.newComment).subscribe(data => {
+  //     this.newComment = '';
+  //     this.loadData();
+  //   })
+  // }
 
-  replyToComment(comment){
-    console.log(comment);
-    this.dataService.addReplyToComment(comment.commentId, comment.newReply).subscribe(data => {
-      this.loadData();
-    })
-  }
+  // replyToComment(comment){
+  //   this.dataService.addReplyToComment(comment.commentId, comment.newReply).subscribe(data => {
+  //     this.loadData();
+  //   })
+  // }
 
-  toggleForm(commentId){
-    this.lesson['comments'].map(x => {
-      if(x['commentId'] == commentId){
-        x.showReplyForm = !x.showReplyForm;
-      }
-    })
-  }
+  // toggleForm(commentId){
+  //   this.lesson['comments'].map(x => {
+  //     if(x['commentId'] == commentId){
+  //       x.showReplyForm = !x.showReplyForm;
+  //     }
+  //   })
+  // }
 
-  addReply(commentId){
-    this.toggleForm(commentId);
-  }
+  // addReply(commentId){
+  //   this.toggleForm(commentId);
+  // }
 
 }

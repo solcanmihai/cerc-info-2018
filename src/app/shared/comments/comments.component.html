@@ -1,26 +1,7 @@
-<div *ngIf="lesson" class="container-fluid mt-2">
-  <h1>{{lesson?.title}}</h1>
-  <p class="lead">
-    {{lesson?.content}}
-  </p>
-  <hr>
-  <p *ngIf="lesson">Taguri: <span *ngFor="let tag of lesson.tags" class="ml-2 p-2 badge badge-success">{{tag}}</span></p>
-  <hr>
-  <p *ngIf="lesson.uploads.length > 0; else noAttachments">Fisiere atasate:
-    <a class="d-block" href={{api+item.url}} *ngFor="let item of lesson.uploads">{{item.filename}}</a>
-  </p>
-
-  <ng-template #noAttachments>
-    <p>Nu exista fisiere atasate</p>
-  </ng-template>
-
-  <app-comments [dataId]="lessonId" [pageType]="'Lesson'"></app-comments>
-
-  <!-- <div class="row">
-    <div class="col-md-12">
-      <h5>Comentarii</h5>
-    </div>
-    <ng-container *ngFor="let comment of lesson.comments">
+<div class="container-fluid px-0 no-gutters">
+  <h5>Comentarii</h5>
+  <ng-container *ngFor="let comment of comments">
+    <div class="row">
       <div class="col-md-12">
         <div class="card my-1">
           <div class="card-body py-0 px-3">
@@ -61,24 +42,17 @@
           </div>
         </div>
       </div>
-    </ng-container>
-    
-    
-    
-    <hr>
-    <div class="col-md-12">
-      <div class="card">
-        <div class="card-body p-1">
-          <textarea [(ngModel)]="newComment" placeholder="Comentariu nou.." rows="2" class="form-control"></textarea>
-        </div>
-        <div class="card-footer d-flex flex-row justify-content-end p-1">
-          <button class="btn btn-success btn-sm" (click)="addNewComment()">
-            Adauga
-          </button>
-        </div>
-      </div>
     </div>
-
-  </div> -->
+  </ng-container>
+  <hr>
+  <div class="card">
+    <div class="card-body p-1">
+      <textarea [(ngModel)]="newComment" placeholder="Comentariu nou.." rows="2" class="form-control"></textarea>
+    </div>
+    <div class="card-footer d-flex flex-row justify-content-end p-1">
+      <button class="btn btn-success btn-sm" (click)="addNewComment()">
+        Adauga
+      </button>
+    </div>
+  </div>
 </div>
-

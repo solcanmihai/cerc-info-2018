@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { EditUsersInGroupComponent } from './edit-users-in-group/edit-users-in-group.component';
 import { FilterxPipe } from './pipes/filterx.pipe';
 import { TeacherEditHomeworkComponent } from './pipes/teacher-edit-homework/teacher-edit-homework.component';
+import { CommentsComponent } from './comments/comments.component';
 
 @NgModule({
   imports: [
@@ -14,12 +15,13 @@ import { TeacherEditHomeworkComponent } from './pipes/teacher-edit-homework/teac
     RouterModule,
     FormsModule
   ],
-  declarations: [GroupDetailsComponent, FilterPipe, EditUsersInGroupComponent, FilterxPipe, TeacherEditHomeworkComponent],
+  declarations: [GroupDetailsComponent, FilterPipe, EditUsersInGroupComponent, FilterxPipe, TeacherEditHomeworkComponent, CommentsComponent],
   exports: [
     GroupDetailsComponent,
     EditUsersInGroupComponent,
     FilterPipe,
-    FilterxPipe
+    FilterxPipe,
+    CommentsComponent
   ]
 })
 export class SharedModule { }

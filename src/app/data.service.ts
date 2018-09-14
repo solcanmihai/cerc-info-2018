@@ -88,6 +88,8 @@ export class DataService {
     return this.http.get(API + '/groups/' + groupId + '/' + userId + '/toggle', {headers: this.headers});
   }
 
+  
+
   //Homework
 
   getHomeworkById(homeworkId: number){
@@ -133,6 +135,7 @@ export class DataService {
 
     return this.http.post(API + '/submit/' + homeworkId, uploadData, {headers: this.headers});
   }
+  
 
   //Lessons
 
@@ -199,14 +202,30 @@ export class DataService {
     return this.http.post(API + '/lessons', uploadData, {headers: this.headers});
   }
 
-  //Lessons comments
+  //Comments
+  
+  getCommentsFromLesson(lessonId){
+    return this.http.get(API + '/lesson-comments/' + lessonId, {headers: this.headers});
+  }
+  
+  getCommentsFromHomework(homeworkId){
+    return this.http.get(API + '/homework-comments/' + homeworkId, {headers: this.headers});
+  }
 
   addCommentToLesson(lessonId: number, content: string){
     return this.http.post(API + '/lesson-comments', {lessonId, content}, {headers: this.headers});
   }
 
-  addReplyToComment(commentId, content){
+  addCommentToHomework(homeworkId: number, content: string){
+    return this.http.post(API + '/homework-comments', {homeworkId, content}, {headers: this.headers});
+  }
+
+  addReplyToCommentLesson(commentId, content){
     return this.http.post(API + '/lesson-comments/reply', {commentId, content}, {headers: this.headers});
+  }
+
+  addReplyToCommentHomework(commentId, content){
+    return this.http.post(API + '/homework-comments/reply', {commentId, content}, {headers: this.headers});
   }
 
   //Attendance

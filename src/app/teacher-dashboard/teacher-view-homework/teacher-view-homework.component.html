@@ -12,6 +12,7 @@
     <button class="btn btn-danger" (click)="deleteHomework()">Sterge tema</button>
     <button class="ml-2 btn btn-warning" [routerLink]="'/teacher-dashboard/edit-homework/' + homeworkId">Modifica tema</button>
   </div>
+  <app-comments [dataId]="homeworkId" [pageType]="'Homework'"></app-comments>
 </div>
 <div *ngIf="!homework" class="m-3">
   Loading...

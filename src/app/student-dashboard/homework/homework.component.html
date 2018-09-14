@@ -11,6 +11,7 @@
   <div class="mt-2">
     <button class="btn btn-success" [routerLink]="'/student-dashboard/homework-submit/' + homeworkId">Trimite tema</button>
   </div>
+  <app-comments [dataId]="homeworkId" [pageType]="'Homework'"></app-comments>
 </div>
 <div *ngIf="!homework" class="m-3">
   Loading...

@@ -38,38 +38,7 @@ export class StudentLessonComponent implements OnInit {
   loadData(){
     this.dataService.getLessonById(this.lessonId).subscribe(lesson => {
       this.lesson = lesson;
-
-      this.lesson['comments'].map(x => {
-        x.showReplyForm = false;
-      })
-
-      console.log(this.lesson);
     })
   }
 
-  addNewComment(){
-    this.dataService.addCommentToLesson(this.lessonId, this.newComment).subscribe(data => {
-      this.newComment = '';
-      this.loadData();
-    })
-  }
-
-  replyToComment(comment){
-    console.log(comment);
-    this.dataService.addReplyToComment(comment.commentId, comment.newReply).subscribe(data => {
-      this.loadData();
-    })
-  }
-
-  toggleForm(commentId){
-    this.lesson['comments'].map(x => {
-      if(x['commentId'] == commentId){
-        x.showReplyForm = !x.showReplyForm;
-      }
-    })
-  }
-
-  addReply(commentId){
-    this.toggleForm(commentId);
-  }
 }

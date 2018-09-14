@@ -19,9 +19,12 @@
       <div class="col-md-11 offset-md-1" *ngIf="comment.showReplyForm">
         <div class="card">
           <div class="card-body p-1">
-            <textarea placeholder="Raspunde.." [(ngModel)]="comment.newReply" rows="2" class="form-control"></textarea>
+            <textarea (keyup)="updateReplyLength(comment.commentId, comment.newReply)" [maxlength]="maxCommentSize" placeholder="Raspunde.." [(ngModel)]="comment.newReply" rows="2" class="form-control"></textarea>
           </div>
           <div class="card-footer d-flex flex-row justify-content-end p-1">
+            <span class="mr-3">
+              {{comment.currentLength}}/{{maxCommentSize}} caractere
+            </span>
             <button class="btn btn-success btn-sm" (click)="replyToComment(comment)">
               Adauga
             </button>
@@ -47,9 +50,12 @@
   <hr>
   <div class="card">
     <div class="card-body p-1">
-      <textarea [(ngModel)]="newComment" placeholder="Comentariu nou.." rows="2" class="form-control"></textarea>
+      <textarea (keyup)="updateCurrentLengthComment()" [maxlength]="maxCommentSize" [(ngModel)]="newComment" placeholder="Comentariu nou.." rows="2" class="form-control"></textarea>
     </div>
     <div class="card-footer d-flex flex-row justify-content-end p-1">
+      <span class="mr-3">
+        {{currentLength}}/{{maxCommentSize}} caractere
+      </span>
       <button class="btn btn-success btn-sm" (click)="addNewComment()">
         Adauga
       </button>

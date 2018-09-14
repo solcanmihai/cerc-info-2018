@@ -14,20 +14,38 @@ export class CommentsComponent implements OnInit {
 
   //Lesson or Homework
   @Input() pageType;
+  maxCommentSize: number;
 
   //Local stuff
   newComment: string;
+
+  currentLength: number;
 
   constructor(
     private dataService: DataService
   ) { }
 
+  updateCurrentLengthComment(){
+    this.currentLength = this.newComment.length;
+  }
+
+  updateReplyLength(commentId, content){
+    this.comments.map(x => {
+      if(x.commentId == commentId){
+        x.currentLength = content.length;
+      }
+    })
+  }
+
   loadData(){
+    this.currentLength = 0;
+
     if(this.pageType == 'Lesson'){
       this.dataService.getCommentsFromLesson(this.dataId).subscribe(data => {
         this.comments = data;
         this.comments.map(x => {
           x.showReplyForm = false;
+          x.currentLength = 0;
         })
       })
     }
@@ -36,13 +54,14 @@ export class CommentsComponent implements OnInit {
         this.comments = data;
         this.comments.map(x => {
           x.showReplyForm = false;
+          x.currentLength = 0;
         })
       })
     }
   }
 
   ngOnInit() {
-    console.log(this.dataId, this.pageType);
+    this.maxCommentSize = 500;
     this.loadData();
   }
 

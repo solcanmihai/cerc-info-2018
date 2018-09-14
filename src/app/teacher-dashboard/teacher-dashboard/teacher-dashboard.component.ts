@@ -12,6 +12,7 @@ export class TeacherDashboardComponent implements OnInit {
 
   availableGroups;
   activeGroupId: number;
+  activeGroupName: string;
 
   constructor(
     private authSerivice: AuthService,
@@ -26,6 +27,7 @@ export class TeacherDashboardComponent implements OnInit {
       this.authSerivice.me().subscribe(me => {
         this.availableGroups = data;
         this.activeGroupId = me['activeGroupId'];
+        this.activeGroupName = me['activeGroupName'];
       })
     })
   }

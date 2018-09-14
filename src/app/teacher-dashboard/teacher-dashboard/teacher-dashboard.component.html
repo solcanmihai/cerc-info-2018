@@ -3,10 +3,10 @@
 
   <div class="dropdown ml-auto">
     <button class="btn nav-link btn-outline-success dropdown-toggle" type="button" id="choseActiveGroupButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Grup activ
+      <span *ngIf="activeGroupName">{{activeGroupName}}</span><span *ngIf="!activeGroupName">Grup activ</span>
     </button>
     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="choseActiveGroupButton">
-      <h6 class="dropdown-header">Grupuri active</h6>
+      <h6 class="dropdown-header">Grupuri posibile</h6>
       <div class="dropdown-item" (click)="setActiveGroup(item.groupId)" [class.bg-success]="item.groupId==activeGroupId" *ngFor="let item of availableGroups">{{item.name}}</div>
     </div>
   </div>

@@ -1,7 +1,7 @@
 <h3>Toate lectiile</h3>
 <div class="list-group">
   <div class="list-group-item" *ngFor="let lesson of lessons" [routerLink]="'/student-dashboard/lesson/' + lesson.lessonId">
-    {{lesson.title}}<span class="badge badge-secondary">New</span>
+    {{lesson.title}}
   </div>
 </div>
 

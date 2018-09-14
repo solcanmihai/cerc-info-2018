@@ -43,7 +43,6 @@ export class RegisterComponent implements OnInit {
     this.activatedRoute.params.subscribe(data => {
       this.token = data.token;
       this.dataService.validateRegisterToken(this.token).subscribe(datax => {
-        console.log(datax);
         if(!datax['error']){
           this.formData.email = datax['email'];
         }
@@ -56,7 +55,6 @@ export class RegisterComponent implements OnInit {
   }
 
   matchPasswords(){
-    console.log('match');
     if(this.formData.password && this.formData.confirmPassword && this.formData.password != this.formData.confirmPassword){
       this.passwordError = true;
     }

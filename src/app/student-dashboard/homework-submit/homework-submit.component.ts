@@ -46,6 +46,7 @@ export class HomeworkSubmitComponent implements OnInit {
   handleFileInput(file, task){
     task.file = file;
     task.fileName = file[0].name;
+    console.log(this.submitData);
   }
 
 }

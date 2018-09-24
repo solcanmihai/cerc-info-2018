@@ -6,7 +6,8 @@
         <div class="card my-1">
           <div class="card-body py-0 px-3">
             <div class="top-section d-flex flex-row justify-content-between pb-1"><span>{{comment.dateAgo}}, {{comment.name}} a spus:</span>
-              <span class="reply-button" (click)="addReply(comment.commentId)">Reply</span>
+              <span class="reply-button" (click)="addReply(comment.commentId)">Raspunde</span>
+              <span class="reply-button" (click)="deleteComment(comment.commentId)">Raspunde</span>
             </div>
             <hr class="p-0 m-0">
             <div class="body-section py-1">

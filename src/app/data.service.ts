@@ -119,9 +119,13 @@ export class DataService {
 
     console.log(homework);
 
+    let x = 0;
+
      for(let i = 0; i < homework.length; i++){
        if(homework[i].file){
         uploadData.append("uploads", homework[i].file[0], homework[i].file[0]['name']);
+        homework[i]['fileIndex'] = x;
+        x++;
         delete homework[i].file;
        }
      }
@@ -226,6 +230,14 @@ export class DataService {
 
   addReplyToCommentHomework(commentId, content){
     return this.http.post(API + '/homework-comments/reply', {commentId, content}, {headers: this.headers});
+  }
+
+  deleteLessonComment(commentId){
+    return this.http.delete(API + '/lesson-comments/' + commentId, {headers: this.headers});
+  }
+  
+  deleteHomeworkComment(commentId){
+    return this.http.delete(API + '/homework-comments/' + commentId, {headers: this.headers});
   }
 
   //Attendance

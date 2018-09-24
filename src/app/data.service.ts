@@ -114,6 +114,10 @@ export class DataService {
 
   //Submit homework
 
+  getSubmit(homeworkId){
+    return this.http.get(API + '/submit/' + homeworkId, {headers: this.headers});
+  }
+
   submitHomeworkSubmit(homeworkId, homework){
     const uploadData = new FormData();
 

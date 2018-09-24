@@ -24,6 +24,9 @@
                   <input (change)="handleFileInput($event.target.files, task)" type="file" class="custom-file-input" [id]="'inputGroupFile' + i">
                   <label class="custom-file-label" [for]="'inputGroupFile' + i">{{task.fileName}}</label>
                 </div>
+                <div *ngIf="task.fileLink" class="input-group-append">
+                  <a href={{task.fileLink}} class="btn btn-outline-success input-group-text">Fisier vechi</a>
+                </div>
               </div>
             </ng-container>
           </li>

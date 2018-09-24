@@ -1,1 +1,1 @@
-export const API: String = 'http://0b2fb8ec.ngrok.io/api';
+export const API: String = 'http://192.168.1.103:3000/api';

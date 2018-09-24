@@ -249,5 +249,16 @@ export class DataService {
   getMyAttendance(){
     return this.http.get(API + '/attendance', {headers: this.headers});
   }
-  
+
+  getUsersWithAttendance(){
+    return this.http.get(API + '/attendance/stats', {headers: this.headers});
+  }
+
+  getAttendanceSheet(){
+    return this.http.get(API + '/attendance/sheet', {headers: this.headers, responseType: 'blob', observe: 'response'});
+  }
+
+  getAttendanceForStudent(userId){
+    return this.http.get(API + '/attendance/by-user/' + userId, {headers: this.headers});
+  }
 }

@@ -1,0 +1,13 @@
+<div *ngIf="elevi" class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Prezenta pentru {{me.activeGroupName}}</h3>
+      <div class="list-group">
+        <div *ngFor="let elev of elevi" class="list-group-item" [routerLink]="'/teacher-dashboard/prezenta-elev/' + elev.userId">
+          {{elev.name}} - <span class="badge badge-success px-2 py-1">{{elev.stats.attended}}/{{elev.stats.of}}</span>
+        </div>
+      </div>
+      <button class="btn btn-success mt-3" (click)="downloadFile()">Tabel excel prezenta</button>
+    </div>
+  </div>
+</div>

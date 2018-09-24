@@ -37,6 +37,19 @@ export class CommentsComponent implements OnInit {
     })
   }
 
+  deleteComment(commentId){
+    if(this.pageType == 'Lesson'){
+      this.dataService.deleteLessonComment(commentId).subscribe(data => {
+        this.loadData();
+      })
+    }
+    if(this.pageType == 'Homework'){
+      this.dataService.deleteHomeworkComment(commentId).subscribe(data => {
+        this.loadData();
+      })
+    }
+  }
+
   loadData(){
     this.currentLength = 0;
 

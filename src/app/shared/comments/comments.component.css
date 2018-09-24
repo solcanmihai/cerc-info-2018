@@ -7,3 +7,7 @@
     cursor: pointer;
     color: rgb(40, 167, 69);
 }
+
+.text-danger{
+    cursor: pointer;
+}

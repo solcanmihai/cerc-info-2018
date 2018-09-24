@@ -5,9 +5,10 @@
       <div class="col-md-12">
         <div class="card my-1">
           <div class="card-body py-0 px-3">
-            <div class="top-section d-flex flex-row justify-content-between pb-1"><span>{{comment.dateAgo}}, {{comment.name}} a spus:</span>
-              <span class="reply-button" (click)="addReply(comment.commentId)">Raspunde</span>
-              <span class="reply-button" (click)="deleteComment(comment.commentId)">Raspunde</span>
+            <div class="top-section d-flex flex-row justify-content-between pb-1">
+              <span>{{comment.dateAgo}}, {{comment.name}} a spus:</span>
+              <span class="reply-button ml-auto" (click)="addReply(comment.commentId)">Raspunde</span>
+              <span class="text-danger ml-2" (click)="deleteComment(comment.commentId)">Sterge</span>
             </div>
             <hr class="p-0 m-0">
             <div class="body-section py-1">
@@ -20,7 +21,9 @@
       <div *ngFor="let reply of comment.replies" class="col-md-11 offset-md-1">
         <div class="card my-1">
           <div class="card-body py-0 px-3">
-            <div class="top-section d-flex flex-row justify-content-between pb-1"><span>{{reply.dateAgo}}, {{reply.name}} a spus:</span>
+            <div class="top-section d-flex flex-row justify-content-between pb-1">
+              <span>{{reply.dateAgo}}, {{reply.name}} a spus: </span>
+              <span class="text-danger" (click)="deleteComment(reply.commentId)">Sterge</span>
             </div>
             <hr class="p-0 m-0">
             <div class="body-section py-1">

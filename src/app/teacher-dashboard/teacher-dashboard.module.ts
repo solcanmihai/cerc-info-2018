@@ -22,6 +22,8 @@ import { TeacherHomeworkListComponent } from './teacher-homework-list/teacher-ho
 import { TeacherViewHomeworkComponent } from './teacher-view-homework/teacher-view-homework.component';
 import { TeacherGroupPrezentaComponent } from './teacher-group-prezenta/teacher-group-prezenta.component';
 import { TeacherGroupPrezentaElevComponent } from './teacher-group-prezenta-elev/teacher-group-prezenta-elev.component';
+import { HomeworkSubmitsComponent } from './homework-submits/homework-submits.component';
+import { TeacherHomeworkSubmitComponent } from './teacher-homework-submit/teacher-homework-submit.component';
 
 const routes: Routes = [
   {
@@ -41,7 +43,9 @@ const routes: Routes = [
       {path: 'edit-homework/:homeworkId', component: TeacherHomeworkComponent},
       {path: 'homework/:homeworkId', component: TeacherViewHomeworkComponent},
       {path: 'statistici-prezenta', component: TeacherGroupPrezentaComponent},
-      {path: 'prezenta-elev/:studentId', component: TeacherGroupPrezentaElevComponent}
+      {path: 'prezenta-elev/:studentId', component: TeacherGroupPrezentaElevComponent},
+      {path: 'submituri-tema/:homeworkId', component: HomeworkSubmitsComponent},
+      {path: 'submit/:submitId', component: TeacherHomeworkSubmitComponent}
     ]
   }
 ];
@@ -76,7 +80,9 @@ const routes: Routes = [
     TeacherHomeworkListComponent,
     TeacherViewHomeworkComponent,
     TeacherGroupPrezentaComponent,
-    TeacherGroupPrezentaElevComponent
+    TeacherGroupPrezentaElevComponent,
+    HomeworkSubmitsComponent,
+    TeacherHomeworkSubmitComponent
   ]
 })
 export class TeacherDashboardModule { }

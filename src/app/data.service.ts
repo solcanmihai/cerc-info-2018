@@ -114,6 +114,14 @@ export class DataService {
 
   //Submit homework
 
+  getSubmitForTeacher(submitId){
+    return this.http.get(API + '/submit/' + submitId, {headers: this.headers});
+  }
+
+  getSubmits(homeworkId){
+    return this.http.get(API + '/submit/by-homework/' + homeworkId, {headers: this.headers});
+  }
+
   getSubmit(homeworkId){
     return this.http.get(API + '/submit/' + homeworkId, {headers: this.headers});
   }

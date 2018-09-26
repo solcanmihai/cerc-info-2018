@@ -1,0 +1,17 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Submit </h3>
+      <div class="list-group">
+        <div *ngFor="let task of submit" class="list-group-item">
+          <ng-container *ngIf="task.link">
+            <a href={{task.link}}>{{task.link}}</a> 
+          </ng-container>
+          <ng-container *ngIf="task.upload">
+            <a href={{api+task.upload.url}}>{{task.upload.fileName}}</a> 
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

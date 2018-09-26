@@ -1,0 +1,19 @@
+<div class="container-fluid" *ngIf="submits">
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Submituri pentru {{homeworkName}}</h3>
+      <div class="list-group">
+        <div [routerLink]="'/teacher-dashboard/submit/' + submit.submitId" *ngFor="let submit of submits" class="list-group-item">
+          {{submit.userName}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="!submits" class="container-flui">
+  <div class="row">
+    <div class="col-md-12">
+      Loading...
+    </div>
+  </div>
+</div>

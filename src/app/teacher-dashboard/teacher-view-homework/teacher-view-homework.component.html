@@ -11,6 +11,7 @@
   <div class="mt-3">
     <button class="btn btn-danger" (click)="deleteHomework()">Sterge tema</button>
     <button class="ml-2 btn btn-warning" [routerLink]="'/teacher-dashboard/edit-homework/' + homeworkId">Modifica tema</button>
+    <button class="ml-2 btn btn-success" [routerLink]="'/teacher-dashboard/submituri-tema/' + homeworkId">Vezi submituri</button>
   </div>
   <app-comments [dataId]="homeworkId" [pageType]="'Homework'"></app-comments>
 </div>

@@ -19,7 +19,7 @@ import { StudentDashboardModule } from "src/app/student-dashboard/student-dashbo
 
 //Services
 import { AuthService } from "./auth.service"
-import { DataService } from "./data.service"
+import { DataService } from "./data.service";
 
 const routes: Routes = [
   { path: "", component: RedirectComponent },
